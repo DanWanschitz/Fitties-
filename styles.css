@@ -1,0 +1,513 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #0f032c !important;
+  color: #ffffff;
+  padding-top: 90px;
+}
+
+div.scrollmenu {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #90ee90;
+  color: black;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scrollmenu a.nav-link {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+div.scrollmenu a.nav-link:hover {
+  background-color: #228b22;
+  color: white;
+}
+
+div.scrollmenu a.nav-link.active {
+  background-color: #32cd32;
+  color: white;
+  border: 2px solid #228b22;
+}
+
+.content-box {
+  background-color: #f8f9fa;
+  color: #000;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0 30px;
+  text-align: center;
+}
+
+.nav-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+section {
+  margin: 50px 20px 0;
+  padding: 20px;
+  border-top: 2px solid #dee2e6;
+  text-align: center;
+  color: #000;
+}
+
+.institute-info {
+  background-color: white;
+  color: #000;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+}
+
+.institute-info img {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.institute-info .description {
+  flex: 1;
+  min-width: 300px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.institute-info h2 {
+  color: #004080;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.header-aboutus {
+  text-align: center;
+  padding: 0px 40px 0px 20px;
+}
+
+.FitBrainheader {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0px 10px 0px 20px;
+}
+
+/* Team grid layout */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Profile cards */
+.profile {
+  background-color: white;
+  color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-top: 5px solid #007bff;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profile-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-header p {
+  color: #000;
+  margin-top: 0;
+}
+
+.profile img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 15px;
+  border: 4px solid white;
+}
+
+.profile h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #004080;
+}
+
+.profile-content {
+  padding: 0 20px 20px;
+  flex-grow: 1;
+}
+
+.profile ul {
+  padding-left: 20px;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.profile ul li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.profile ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}
+
+/* Alumni section */
+.alumni-section {
+  background-color: white;
+  color: #000;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.alumni-card {
+  padding: 20px;
+  background-color: #f8f9fa;
+  color: #000;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.alumni-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alumni-card h4 {
+  color: #004080;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.alumni-card ul {
+  padding-left: 20px;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.alumni-card ul li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.alumni-card ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #007bff;
+}
+
+/* Contact section */
+.contact-section {
+  background-color: white;
+  color: #000;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-section p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+}
+
+.contact-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
+}
+
+.diversity-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e9f5ff;
+  border-radius: 30px;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #004080;
+}
+
+.diversity-badge:before {
+  content: "★";
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Footer */
+footer {
+  background-color: #004080;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 16px;
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visible {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-grid,
+  .alumni-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .institute-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .profile-header {
+    padding: 15px;
+  }
+
+  .profile img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .header-banner {
+    padding: 40px 0;
+  }
+
+  .header-banner h1 {
+    font-size: 36px;
+  }
+
+  .header-banner p {
+    font-size: 18px;
+  }
+}
+
+/* === Global Reset & Base === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Containers & Layout === */
+.homepage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.homepage-section {
+  padding: 4rem 0;
+  background-color: #fff;
+  color: #000;
+  border-bottom: 1px solid #eee;
+}
+
+/* === Hero Section === */
+.homepage-hero {
+  background: linear-gradient(120deg, #0077b6, #00b4d8);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.homepage-hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.homepage-hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.homepage-cta-button {
+  background-color: #fff;
+  color: #0077b6;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.homepage-cta-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* === Section Titles & Text === */
+.homepage-section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.homepage-section-text {
+  font-size: 1.125rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* === Grid Layouts === */
+.homepage-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 2rem;
+}
+
+/* === Cards === */
+.homepage-card {
+  background-color: #f0f8ff;
+  color: #000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.homepage-card-text {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* === List (Recent Activity) === */
+.homepage-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.homepage-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.homepage-list li::before {
+  content: '•';
+  color: #0077b6;
+  position: absolute;
+  left: 0;
+}
+
+.project-box,
+.project-box h3,
+.project-row,
+.container,
+.header-aboutus,
+.FitBrainheader,
+.FitBrainheader h1,
+.FitBrainheader p ,
+.section-title ,
+.centered-heading,
+.site-header,
+.site-header h1,
+.game-header h1,
+.game-header h2,
+.game-header h3 {
+  color: white;
+}
