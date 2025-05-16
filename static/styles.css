@@ -319,6 +319,20 @@ footer {
   opacity: 0.8;
 }
 
+.sponsors {
+    color: #666;
+    margin-top: 0;
+}
+
+.sponsor-list {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Animations */
 @keyframes fadeIn {
   from {
