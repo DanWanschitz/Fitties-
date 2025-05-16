@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fit Brain Lab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="overlay"></div> 
+    
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fit Brain Lab Logo" /></a>
+      </div>
+      <ul>
+        <li><a href="/activity">Activity</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/about_us">About Us</a></li>
+        <li><a href="/gamepage">Brain Games</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <h1>Welcome to <br>Fit Brain Lab!</h1>
+      <p>The Fit Brain Lab focuses on developing exercise-based strategies to enhance stress resilience, particularly in students. Our research explores how physical exercise influences brain mechanisms that help protect against stress.</p>
+      <div class="buttons">
+        <a href="#publications" class="scroll-button">NEWS</a>
+        <a href="#activity" class="scroll-button">ACTIVITY</a>
+        <a href="#team" class="scroll-button">TEAM</a>
+      </div>       
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- GOAL AND MISSION -->
+<section id="our-goal-mission">
+  <div class="containerss">
+    <div class="text-box">
+      <h2>OUR GOAL</h2>
+      <p>At The Fit Brain Lab, our goal is to bridge the gap between physical exercise and mental well-being by exploring how physical activity can increase stress resilience, particularly among students. We aim to develop and implement evidence-based strategies that enhance mental health through exercise, ensuring that students can thrive in both academic and personal aspects of their lives.</p>
+    </div>
+
+    <div class="text-box">
+      <h2>OUR MISSION</h2>
+      <p>The mission of The Fit Brain Lab is to optimize existing physical exercise strategies and develop innovative approaches that specifically target stress resilience, with a focus on students. By enhancing the biological mechanisms in the brain that are influenced by exercise, we strive to provide effective tools for students to manage stress and improve their mental well-being.</p>
+    </div>
+  </div>
+</section>
+  
+<!-- PUBLICATIONS SECTION -->
+<section id="publications" class="publications">
+  <h2>Recent Publications</h2>
+  <div class="publication-list">
+     <div class="publication-item">
+      <img src="{{ url_for('static', filename='images/publication1.jpg') }}" alt="Publication 1">
+      <p><strong>Title of Publication 1</strong><br>Author(s), Year</p>
+    </div>
+    <div class="publication-item">
+      <img src="{{ url_for('static', filename='images/publication2.jpg') }}" alt="Publication 2">
+      <p><strong>Title of Publication 2</strong><br>Author(s), Year</p>
+  </div>
+    <div class="publication-item">
+      <img src="{{ url_for('static', filename='images/publication3.jpg') }}" alt="Publication 3">
+      <p><strong>Title of Publication 3</strong><br>Author(s), Year</p>
+    </div>
+  </div>
+  <div class="explore-button-container">
+    <a href="/publications" class="explore-button">View All Publications</a>
+  </div>
+</section> 
+
+<!-- PHYSICAL ACTIVITY -->
+<section id="activity" class="activity">
+
+<section class="activity-preview-section">
+  <h2>Physical Activity</h2>
+  <div class="activity-scroll-container">
+    <div class="scroll-items">
+      <!-- Activity Cards -->
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/dancing.jpeg') }}" alt="Dancing">
+        <div class="overlay">Dancing</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/football.jpg') }}" alt="Football">
+        <div class="overlay">Football</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/baseball.webp') }}" alt="Baseball">
+        <div class="overlay">Baseball</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/volleyball.jpg') }}" alt="Volleyball">
+        <div class="overlay">Volleyball</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/hockey.avif') }}" alt="Hockey">
+        <div class="overlay">Hockey</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/rugby.webp') }}" alt="Rugby">
+        <div class="overlay">Rugby</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/tennis.jpg') }}" alt="Tennis">
+        <div class="overlay">Tennis</div>
+      </div>
+    </div>
+
+    <!-- Duplicate for looping effect -->
+    <div class="scroll-items duplicate">
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/dancing.jpeg') }}" alt="Dancing">
+        <div class="overlay">Dancing</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/football.jpg') }}" alt="Football">
+        <div class="overlay">Football</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/baseball.webp') }}" alt="Baseball">
+        <div class="overlay">Baseball</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/volleyball.jpg') }}" alt="Volleyball">
+        <div class="overlay">Volleyball</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/hockey.avif') }}" alt="Hockey">
+        <div class="overlay">Hockey</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/rugby.webp') }}" alt="Rugby">
+        <div class="overlay">Rugby</div>
+      </div>
+      <div class="scroll-card">
+        <img src="{{ url_for('static', filename='images/tennis.jpg') }}" alt="Tennis">
+        <div class="overlay">Tennis</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explore Button -->
+  <div class="explore-button-container">
+    <a href="{{ url_for('activity') }}" class="explore-button">Explore All Activities</a>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team">
+  <h2>Meet the Team!</h2>
+  
+  <!-- Introduction Text -->
+  <p>We are a passionate team of researchers dedicated to improving mental health through physical activity. Get to know the minds behind the Fit Brain Lab!</p>
+
+  <!-- Team Layout with Photo on the Left and Members on the Right -->
+  <div class="team-container">
+    <!-- Left: Team Photo -->
+    <div class="team-photo-container">
+      <img src="{{ url_for('static', filename='images/team.jpg') }}" alt="Team Photo" class="team-photo">
+    </div>
+
+    <!-- Right: Team Member Photos -->
+    <div class="team-members">
+      <div class="team-member">
+        <img src="{{ url_for('static', filename='images/member1.jpeg') }}" alt="Member 1" class="member-photo">
+        <h3>Joram Mul</h3>
+      </div>
+      <div class="team-member">
+        <img src="{{ url_for('static', filename='images/member2.jpeg') }}" alt="Member 2" class="member-photo">
+        <h3>Marene Hardonk</h3>
+      </div>
+      <div class="team-member">
+        <img src="{{ url_for('static', filename='images/member3.jpeg') }}" alt="Member 3" class="member-photo">
+        <h3>Anneke Vuuregge</h3>
+      </div>
+      <div class="team-member">
+        <img src="{{ url_for('static', filename='images/member4.jpeg') }}" alt="Member 4" class="member-photo">
+        <h3>Kasia Lasek</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
+

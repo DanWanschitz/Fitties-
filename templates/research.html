@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block title %}Research | Fitbrain Lab{% endblock %}
+
+{% block content %}
+<h1 class="centered-heading">Research Projects</h1>
+
+<section>
+    <h2 class="centered-heading">Human Research Projects</h2>
+
+    <div class="project-row">
+        <div class="project-box">
+            <h3>StayFine Project</h3>
+            <p>
+                A longitudinal trial using a personalized app to prevent relapse in adolescents (13–21 years) who have recovered from depression/anxiety. It uses interviews, questionnaires, and wearables over three years.
+            </p>
+            <p><strong>Partners:</strong> GGZ Brabant Oost, Amsterdam UMC, RUG</p>
+        </div>
+        <div class="project-box image-placeholder">
+            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
+                 alt="StayFine Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+
+    <div class="project-row">
+        <div class="project-box image-placeholder">
+            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
+                 alt="LEOPARD PREDICT Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        <div class="project-box">
+            <h3>LEOPARD PREDICT Project</h3>
+            <p>
+                Aims to predict antidepressant treatment outcomes in patients using rsfMRI and physical activity within the first two weeks of treatment.
+            </p>
+            <p><strong>Partners:</strong> Amsterdam UMC, RadboudUMC</p>
+        </div>
+    </div>
+
+    <div class="project-row">
+        <div class="project-box">
+            <h3>STRIDE-4-Mental Health</h3>
+            <p>
+                Focused on how regular exercise improves student mental health, academic performance, and stress resilience.
+            </p>
+            <p><strong>Partners:</strong> USC Amsterdam, Vrije Universiteit, Hogeschool van Amsterdam, ROCs</p>
+        </div>
+        <div class="project-box image-placeholder">
+            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
+                 alt="STRIDE-4-Mental Health Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="centered-heading">Animal Research Projects</h2>
+
+    <div class="project-row">
+        <div class="project-box image-placeholder">
+            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
+                 alt="Wheel Running Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        <div class="project-box">
+            <h3>Brain Adaptations from Wheel Running</h3>
+            <p>
+                Investigates how voluntary physical activity leads to brain changes that support stress resilience.
+            </p>
+            <p><strong>Partners:</strong> VU (Jaspers)</p>
+        </div>
+    </div>
+
+    <div class="project-row">
+        <div class="project-box">
+            <h3>Exercise & Immunotherapy on Tumor Growth</h3>
+            <p>
+                Studies how combining physical activity and immunotherapy influences brain function and tumor development.
+            </p>
+            <p><strong>Partners:</strong> Amsterdam UMC (Vermeulen)</p>
+        </div>
+        <div class="project-box image-placeholder">
+            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
+                 alt="Tumor Growth Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+
+    <div class="project-row">
+        <div class="project-box image-placeholder">
+            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
+                 alt="The Social Gym Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        <div class="project-box">
+            <h3>The Social Gym</h3>
+            <p>
+                Explores how social interaction combined with exercise affects brain and behavioral outcomes in lab models.
+            </p>
+            <p><strong>Partners:</strong> SILS-UvA Technology Center</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
