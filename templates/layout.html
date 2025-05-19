@@ -33,7 +33,7 @@
    
     <title>{% block title %}Fitbrain Lab{% endblock %}</title>
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <div class="scrollmenu">
         <a href="/" class="btn btn-primary nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
         <a href="/activity" class="btn btn-primary nav-link {% if request.path == '/activity' %}active{% endif %}">Activity</a>
