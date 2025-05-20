@@ -559,3 +559,9 @@ footer {
     width: 100%;
     margin: 20px 0;
 }
+
+.research-page section:nth-of-type(2) .project-box,
+.research-page section:nth-of-type(2) .project-box h3,
+.research-page section:nth-of-type(2) .project-box p {
+  color: black;
+}
