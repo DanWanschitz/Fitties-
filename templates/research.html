@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+
 {% block title %}Research | Fitbrain Lab{% endblock %}
 {% block body_class %}research-page{% endblock %}
 
@@ -8,47 +9,39 @@
 <section>
     <h2 class="centered-heading">Human Research Projects</h2>
 
-    <div class="project-row">
-        <div class="project-box">
-            <h3>StayFine Project</h3>
-            <p>
-                A longitudinal trial using a personalized app to prevent relapse in adolescents (13–21 years) who have recovered from depression/anxiety. It uses interviews, questionnaires, and wearables over three years.
-            </p>
-            <p><strong>Partners:</strong> GGZ Brabant Oost, Amsterdam UMC, RUG</p>
+    <div class="institute-info">
+        <img src="{{ url_for('static', filename='stay_fine.jpg') }}" alt="StayFine Project Image">
+        <div class="description">
+          <h3>StayFine Project</h3>
+          <p>
+            Adolescence is a vulnerable period for the development of stress-related disorders, such as anxiety and depressive disorders. Following remission, up to 60% of adolescents relapses within three years. The StayFine study is an ongoing longitudinal randomized control trial that assesses the efficacy of a personalized app to prevent relapse in adolescents (13-21 years) that remitted from depression and/or anxiety disorders. Participants are monitored during five 2-week periods in three years and data is collected using clinical interviews, questionnaires, ecological momentary assessment, and wearables. Within this project, our goal is to gain insights into the role of physical activity and inactivity during remission and relapse (prevention) using complex analyses.
+          </p>
+          <p><strong>Partners:</strong> GGZ Brabant Oost, Amsterdam UMC, RUG</p>
         </div>
-        <div class="project-box image-placeholder">
-            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
-                 alt="StayFine Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+      
+      <div class="institute-info">
+        <img src="{{ url_for('static', filename='leopard predict.jpg') }}" alt="LEOPARD PREDICT Project Image">
+        <div class="description">
+          <h3>LEOPARD PREDICT Project</h3>
+          <p>
+            It usually takes around eight weeks to determine if an antidepressant drug is effective in depressed patients. Furthermore, after one year, treatment with antidepressants is effective in in about half of all treated depressed patients. In the LEOPARD PREDICT study we will determine if we can predict antidepressant- treatment response in depressed patients (18-60 years) within two weeks of starting with antidepressant treatment using rsfMRI data. We will explore if integration of physical activity parameters can improve prediction of antidepressant treatment effectivity using rsfMRI data. 
+          </p>
+          <p><strong>Partners:</strong> Amsterdam UMC (Reneman), RadboudUMC (Ruhe) </p>
         </div>
-    </div>
+      </div>
 
-    <div class="project-row">
-        <div class="project-box image-placeholder">
-            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
-                 alt="LEOPARD PREDICT Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+      <div class="institute-info">
+        <div class="description">
+          <h3>STRIDE-4-Mental Health</h3>
+          <p>
+            Many young adults face significant lifestyle changes and experience stress when starting an university education, increasing their risk for mental health issues like anxiety and depression. Regular exercise is a simple, low-cost way to boost mental well-being, reduce anxiety and depression, and even enhance academic performance. The STRIDE-4-Mental Health project will apply a comprehensive network approach to uncover the factors influencing exercise persistence in students and its relationships to mental health, personality, and lifestyle (e.g., urbanicity). In collaboration with Caring Universities and the University Sports Centre, we will conduct large-scale assessment on physical activity patterns, factors influencing lasting exercise routines and their impact on (first year) student’s stress, mental health and academic performance. Insights will shape an online behaviour-change intervention combining psychoeducation, strategic planning, and a buddy system, which will be evaluated through a randomized controlled trial.
+          </p>
+          <p><strong>Partners:</strong> University Sport Center (USC) Amsterdam; Vrije Universiteit Sport Center; Hogeschool van Amsterdam; ROCs Amsterdam en Flevoland </p>
         </div>
-        <div class="project-box">
-            <h3>LEOPARD PREDICT Project</h3>
-            <p>
-                Aims to predict antidepressant treatment outcomes in patients using rsfMRI and physical activity within the first two weeks of treatment.
-            </p>
-            <p><strong>Partners:</strong> Amsterdam UMC, RadboudUMC</p>
-        </div>
-    </div>
-
-    <div class="project-row">
-        <div class="project-box">
-            <h3>STRIDE-4-Mental Health</h3>
-            <p>
-                Focused on how regular exercise improves student mental health, academic performance, and stress resilience.
-            </p>
-            <p><strong>Partners:</strong> USC Amsterdam, Vrije Universiteit, Hogeschool van Amsterdam, ROCs</p>
-        </div>
-        <div class="project-box image-placeholder">
-            <img src="{{ url_for('static', filename='istockphoto-1180410208-612x612.jpg') }}" 
-                 alt="STRIDE-4-Mental Health Project Image" style="max-width: 100%; height: auto; border-radius: 8px;">
-        </div>
-    </div>
+        <img src="{{ url_for('static', filename='stride 4 mh.jpg') }}" alt="STRIDE-4-Mental Health Project Image">
+      </div>
+      
 </section>
 
 <section>
@@ -90,7 +83,7 @@
         <div class="project-box">
             <h3>The Social Gym</h3>
             <p>
-                Explores how social interaction combined with exercise affects brain and behavioral outcomes in lab models.
+                SOME TEXT
             </p>
             <p><strong>Partners:</strong> SILS-UvA Technology Center</p>
         </div>
