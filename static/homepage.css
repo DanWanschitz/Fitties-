@@ -1,9 +1,9 @@
-/* Reset & Base Styles */
+/* HEADER */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 
 body, html {
@@ -15,7 +15,6 @@ body, html {
   color: white;
 }
 
-/* Main Container with Background */
 .container {
   height: 100vh;
   width: 100%;
@@ -26,11 +25,16 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
+
   padding-left: 6%;
 }
 
-/* Overlay that covers the background */
+.logo img {
+  height: 120px; 
+  width: auto;
+  display: block;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -46,7 +50,6 @@ body, html {
   z-index: 2;
 }
 
-/* Navbar */
 .navbar {
   position: absolute;
   top: 20px;
@@ -58,14 +61,6 @@ body, html {
   z-index: 2;
 }
 
-/* Logo styling */
-.logo img {
-  height: 120px; /* adjust as needed */
-  width: auto;
-  display: block;
-}
-
-/* Navigation links */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -80,28 +75,17 @@ body, html {
 
 .navbar ul li a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  padding: 8px 12px;
-  transition: color 0.3s ease;
+  color: #ffffff;
+  position: relative;
+  padding: 8px;
+  transition: color 0.3s;
 }
 
-.navbar ul li::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 12px;
-  width: 0%;
-  height: 2px;
-  background: #1a1f6d;
-  transition: width 0.3s ease;
+.navbar ul li a:hover {
+  text-decoration: underline;
+  color: #007BFF; 
 }
 
-.navbar ul li:hover::after {
-  width: calc(100% - 24px);
-}
-
-/* Hero Content */
 .hero {
   max-width: 600px;
   position: relative;
@@ -121,12 +105,11 @@ body, html {
   margin-bottom: 8px;
 }
 
-/* Buttons */
 .scroll-button {
   display: inline-block;
   margin-right: 15px;
   padding: 10px 22px;
-  background-color: #1a1f6d;
+  background-color:#007BFF;
   color: white;
   border: none;
   border-radius: 6px;
@@ -137,310 +120,20 @@ body, html {
 }
 
 .scroll-button:hover {
-  background-color: #14194f;
+  background-color: #0056b3;
 }
 
-#our-goal-mission {
-  padding: 50px 0;
-  background-color: #0f032c;
-}
-
-.containerss {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.text-box {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  flex: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.text-box h2, .text-box h3 {
-  color: #2c3e50;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.text-box p {
-  color: #34495e;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-/* Sections */
 section {
+  min-height: 60vh; 
+  display: flex;
+  flex-direction: column;
   padding: 40px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   scroll-margin-top: 0;
-  background-color: #0f032c;
 }
 
-.publications {
-  text-align: center;
-  padding: 50px 0;
-  background-color: #0f032c;
-}
-
-.publications h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.publication-list {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 0 20px;
-}
-
-.publication-item {
-  background: white;
-  border-radius: 10px;
-  width: 250px;
-  padding: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.publication-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-}
-
-.publication-item p {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.explore-button-container {
-  margin-top: 2rem;
-}
-
-.explore-button {
-  background-color: #007bff;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.explore-button:hover {
-  background-color: #0056b3;
-}
-
-/* Activity section */
-.activity-preview-section {
-  text-align: center;
-  padding: 40px 0;
-  background-color: #0f032c;
-}
-
-.activity-preview-section h2 {
-  color: white;
-}
-
-.activity-scroll-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Scroll items wrapper */
-.scroll-items {
-  display: flex;
-  width: fit-content;
-  transition: transform 0.5s ease;
-  animation: scroll-loop 20s linear infinite; 
-}
-
-/* Keyframes for infinite scrolling */
-@keyframes scroll-loop {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Scroll all the way */
-  }
-}
-
-/* Activity card styling */
-.scroll-card {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  margin: 0 15px;
-  background-color: rgba(0, 94, 255, 0.8);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.scroll-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-/* Hover effect for images */
-.scroll-card:hover img {
-  opacity: 0.3; /* Slight fade effect */
-}
-
-/* Overlay with sport name */
-.scroll-card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  font-size: 20px;
-}
-
-/* Only show overlay on hover */
-.scroll-card:hover .overlay {
-  opacity: 1;
-}
-
-/* Hover effect on the card itself */
-.scroll-card:hover {
-  transform: scale(1.05);
-}
-
-.explore-button-container {
-  margin-top: 1rem;
-}
-
-.explore-button {
-  background-color: #007bff;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.explore-button:hover {
-  background-color: #0056b3;
-}
-
-/* TEAM */
-.team {
-  background: #0f032c;
-  color: #ffffff;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.team h2 {
-  font-size: 40px;
-  margin-bottom: 30px;
-}
-
-.team p {
-  font-size: 18px;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-  line-height: 1.6;
-}
-
-/* Container for Team Photo and Members */
-.team-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.team-photo-container {
-  flex: 1;
-  max-width: 40%; /* Adjust size of team photo */
-}
-
-.team-photo {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.team-members {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns for member photos */
-  gap: 20px;
-  max-width: 55%;
-}
-
-.team-member {
-  text-align: center;
-}
-
-.member-photo {
-  width: 150px; 
-  height: 150px; 
-  object-fit: cover; 
-  border-radius: 50%; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
-}
-
-.team-member h3 {
-  font-size: 18px;
-  color: #000000;
-  margin-top: 10px;
-}
-
-/* Full-page Layout for Sections */
-section {
-  min-height: 100vh;  /* Ensures each section takes up full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Optional: Add some spacing between sections to avoid visual clutter */
-.news, .activity, .team {
-  margin-bottom: 30px;
-}
-
-/* Ensure the sections are centered properly */
 section h2 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -452,3 +145,232 @@ section p {
   margin: 0 auto;
 }
 
+/* GOAL AND MISSION SECTION */
+#our-goal-mission {
+  padding: 20px 20px;
+  background-color: #ffffff;
+}
+
+.goalmission {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 80px;
+  justify-content: space-between;
+  width: 95vw;
+}
+
+.goal-mission-item {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0;
+}
+
+.icon {
+  flex: 0 0 100px;  
+  margin-right: 30px;
+}
+
+.icon img {
+  width: 150px; 
+  height: 150px;
+  object-fit: contain;
+}
+
+.text-box h2 {
+  margin-top: 0;
+  font-size: 1.6rem;  
+  color: #000000;
+}
+
+.text-box p {
+  font-size: 0.9rem; 
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+}
+
+/* PROJECS SECTION */
+.projects {
+  text-align: center;
+  color: #ffffff;
+  padding: 50px 0;
+  background-color: #070527;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.projects-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.projects-item {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 450px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.projects-item img {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 6px;
+}
+
+.projects-item p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: left;
+}
+
+.explore-button-container {
+  margin-top: 2rem;
+}
+
+.explore-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color:#0056b3;
+}
+
+/* TIPS AND TRICKS SECTION */
+.tips-and-tricks {
+  background-color: #ffffff;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.tips-and-tricks-container {
+  max-width: 1000px;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.games-text-block,
+.tips-text-block {
+  flex: 1;
+  color: #070527;
+  text-align: center;
+}
+
+.games-text-block h3,
+.tips-text-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.games-text-block p,
+.tips-text-block p {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.games-image-block {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.games-image-block img {
+  width: 450px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.btn-link {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+  background-color: #0056b3;
+}
+
+/* TEAM SECTION */
+.team-section {
+  padding: 60px 20px;
+  background-color: #070527; 
+  color: white; 
+}
+
+.team-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.team-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.team-text {
+  flex: 1;
+  font-family: 'Oswald', sans-serif;
+}
+
+.team-text h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: white; 
+}
+
+.team-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.team-text strong {
+  color: #d1e8ff; 
+}
+.team-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #007BFF; 
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.team-button:hover {
+  background-color: #0056b3;
+}
