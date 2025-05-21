@@ -1,178 +1,65 @@
 {% extends "layout.html" %}
 
+{% block title %}Activity | Fitbrain Lab{% endblock %}
+{% block body_class %}activity-page{% endblock %}
+
 {% block content %}
-  <style>
-    .section {
-  margin: 50px 0;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
 
-.section h2 {
-  color: #4b6cb7;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
 
-.section h3 {
-  margin-top: 25px;
-  color: #4b6cb7;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
+  <h1 class="centered-heading">Tips and Tricks</h1>
 
-.benefits-list div,
-.tips-list div,
-.duration-guide div {
-  background: #f7f9fc;
-  border-left: 4px solid #4b6cb7;
-  margin-bottom: 12px;
-  padding: 15px 20px;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  transition: transform 0.2s ease;
-}
+  <h2 class="centered-heading">Quick Swaps</h2>
+  <div class="content-box">
+    <ul>
+      <li>Take the stairs</li>
+      <li>Bike or walk short distances instead of driving or taking public transport</li>
+      <li>Stand or walk while talking on the phone</li>
+      <li>Get off the bus one stop from your destination</li>
+    </ul>
+  </div>
 
-.benefits-list div:hover,
-.tips-list div:hover,
-.duration-guide div:hover {
-  transform: translateY(-2px);
-  background-color: #eef2f9;
-}
-
-.tips-list div strong,
-.duration-guide div strong,
-.benefits-list div strong {
-  color: #222;
-  font-weight: 600;
-}
-.tooltip {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  color: #4b6cb7;
-  font-weight: bold;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 270px;
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  border-radius: 5px;
-  padding: 10px;
-  position: absolute;
-  z-index: 10;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -135px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 0.85rem;
-  pointer-events: auto;
-}
-
-.tooltip:hover .tooltiptext,
-.tooltip:focus-within .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip a {
-  color: #4bafff;
-  text-decoration: underline;
-  display: inline-block;
-  margin-top: 5px;
-  font-weight: normal;
-}
-
-.tooltip-note {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #555;
-  margin: 20px auto;
-  text-align: center;
-  max-width: 600px;
-}
-
-  </style>
-  <header class="site-header">
-    <div class="container">
-      <h1>Stay Consistent, Stay Strong</h1>
-      <p>Science-backed ideas to build lasting exercise habits</p>
+  <section>
+    <h2 class="centered-heading">Build a Habit</h2>
+    <div class="content-box">
+      <p>
+        Building a routine creates structure in your day and helps reduce mental clutter. When you anchor physical activity to regular parts of your schedule — like a set time after meals or before studying — it becomes easier to follow through without having to think about it. Over time, routines create a sense of stability and control, which can support better sleep, sharper focus, and improved emotional well-being. The goal isn’t perfection — it’s simply showing up for yourself in small, repeatable ways that build momentum.
+      </p>
     </div>
-  </header>
-
-  <main class="container">
-    <p class="tooltip-note">💡 Hover or tap the <span class="tooltip">ℹ️<span class="tooltiptext">View behavioral research and citations for each insight.</span></span> icon to learn what supports each strategy.</p>
-
-    <section class="section">
-      <h2>Why Move? Proven Mental Health Benefits</h2>
-      <div class="benefits-list">
-        <div><strong>Mood boost:</strong> exercise increases feel-good chemicals <span class="tooltip">ℹ️<span class="tooltiptext">Craft & Perna (2004): Reduces cortisol, elevates endorphins. <a href="https://doi.org/10.1080/10673220490472463" target="_blank">Read more →</a></span></span></div>
-        <div><strong>Stress relief:</strong> activity reduces anxiety and pressure <span class="tooltip">ℹ️<span class="tooltiptext">Bland et al. (2014): Stretching and movement raise stress tolerance. <a href="https://doi.org/10.1177/2156587214557695" target="_blank">Read more →</a></span></span></div>
-        <div><strong>Sharper focus:</strong> better memory and cognitive performance <span class="tooltip">ℹ️<span class="tooltiptext">Cappelen et al. (2017); Al Jo (2014): Linked to GPA and academic focus. <a href="https://doi.org/10.1016/j.ssmph.2017.06.007" target="_blank">Read more →</a></span></span></div>
-        <div><strong>Deeper sleep:</strong> consistent activity enhances rest quality</div>
+  
+    <div class="habit-tips-container">
+      <div class="tip-box">
+        <img src="{{ url_for('static', filename='clock.png') }}" alt="Start Small Icon">
+        <h4>Start Small</h4>
+        <p>Start with just 5–10 minutes a day, even something simple like a few stretches right after waking up. Staying consistent is much easier when it feels manageable.</p>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Barriers Students Face & Smart Solutions</h2>
-
-      <button class="accordion">\"I get bored.\"</button>
-      <div class="panel">
-        Try something fun like dancing or group classes. <span class="tooltip">ℹ️<span class="tooltiptext">Self-Determination Theory: enjoyable activities boost intrinsic motivation. <a href="https://doi.org/10.1037/0003-066X.55.1.68" target="_blank">Read more →</a></span></span>
+      <div class="tip-box">
+        <img src="{{ url_for('static', filename='create routine.png') }}" alt="Attach to Routine Icon">
+        <h4>Attach to Routine</h4>
+        <p>Pair your habit with something you already do — like doing a short walk right after finishing your morning coffee or study session.</p>
       </div>
-
-      <button class="accordion">\"No time, especially during exams.\"</button>
-      <div class="panel">
-        Just 10–15 min counts — consistency wins. <span class="tooltip">ℹ️<span class="tooltiptext">Theory of Planned Behavior: low perceived control limits habits. <a href="https://doi.org/10.2307/2789631" target="_blank">Read more →</a></span></span>
+      <div class="tip-box">
+        <img src="{{ url_for('static', filename='track.png') }}" alt="Track Progress Icon">
+        <h4>Track Progress</h4>
+        <p>Use a habit tracker or calendar to visually see your progress and stay motivated.</p>
       </div>
+    </div>    
+  </section>
+  
 
-      <button class="accordion">\"I lose motivation alone.\"</button>
-      <div class="panel">
-        Join a friend or group to stay on track. <span class="tooltip">ℹ️<span class="tooltiptext">Social Cognitive Theory: peer modeling increases consistency. <a href="https://doi.org/10.1037/0033-295X.84.2.191" target="_blank">Read more →</a></span></span>
-      </div>
+  <h2 class="centered-heading">Stay Motivated</h2>
+  <div class="content-box">
+    <ul>
+      <li>Use fitness trackers</li>
+      <li>Set small goals</li>
+      <li>Train with a friend</li>
+    </ul>
+  </div>
 
-      <button class="accordion">\"I don’t see fast results.\"</button>
-      <div class="panel">
-        Track mood or energy — not just appearance. <span class="tooltip">ℹ️<span class="tooltiptext">Transtheoretical Model: success grows through awareness. <a href="https://doi.org/10.1016/0277-9536(83)90234-4" target="_blank">Read more →</a></span></span>
-      </div>
-    </section>
+  <h2 class="centered-heading">On Campus</h2>
+  <div class="content-box">
+    <p>
+      The <strong>University Student Council (USC)</strong> is here to make your campus life better — from events and clubs to student support. They're students, just like you, working to make your voice heard. Get involved or just see what they're up to!
+    </p>
+  </div>
 
-    <section class="section">
-      <h2>Pro Tips to Build Your Routine</h2>
-      <div class="tips-list">
-        <div><strong>Start small:</strong> 10 minutes is enough to begin <span class="tooltip">ℹ️<span class="tooltiptext">Health Belief Model: immediate benefits encourage repetition. <a href="https://pubmed.ncbi.nlm.nih.gov/4629480/" target="_blank">Read more →</a></span></span></div>
-        <div><strong>Pick what you enjoy:</strong> movement should feel fun <span class="tooltip">ℹ️<span class="tooltiptext">Self-Determination Theory: intrinsic rewards are powerful. <a href="https://doi.org/10.1037/0003-066X.55.1.68" target="_blank">Read more →</a></span></span></div>
-        <div><strong>Pair with habits:</strong> walk after meals, stretch before bed</div>
-        <div><strong>Track your energy:</strong> focus on how it makes you feel</div>
-        <div><strong>Be flexible:</strong> adjust intensity, not commitment</div>
-        <div><strong>Invite friends:</strong> social accountability works <span class="tooltip">ℹ️<span class="tooltiptext">Bandura (1986): peer modeling enhances self-efficacy. <a href="https://doi.org/10.1037/0033-295X.84.2.191" target="_blank">Read more →</a></span></span></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>How Much Is Enough?</h2>
-      <div class="duration-guide">
-        <div><strong>Low intensity:</strong> walk, tai chi → 40–60 min/session</div>
-        <div><strong>Moderate:</strong> cycling, dance → 30–45 min/session</div>
-        <div><strong>High intensity:</strong> HIIT, CrossFit → 15–30 min/session</div>
-      </div>
-      <p style="margin-top: 10px">Consistency > intensity. Do what you can, regularly.</p>
-    </section>
-  </main>
-
-  <script>
-    document.querySelectorAll('.accordion').forEach((button) => {
-      button.addEventListener('click', () => {
-        button.classList.toggle('active');
-        const panel = button.nextElementSibling;
-        panel.classList.toggle('show');
-      });
-    });
-  </script>
 {% endblock %}
