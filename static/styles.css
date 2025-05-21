@@ -1,46 +1,92 @@
+/* Base body settings */
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   background-color: #0f032c !important;
   color: #ffffff;
-  padding-top: 90px;
+  margin: 0;
+  padding: 0;
+  padding-top: 160px; /* Adjusted for navbar height */
+  position: relative;
+  overflow-x: hidden;
 }
 
-div.scrollmenu {
-  position: fixed;
-  top: 10px;
-  right: 10px;
+/* Container styles */
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Navbar styling (from homepage.css) === */
+.navbar {
+  position: fixed; /* Changed to fixed so it stays at top of screen */
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  gap: 10px;
-  z-index: 1000;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 6%; /* Consistent padding */
+  z-index: 1000; /* Ensure navbar stays on top */
+  background-color: #0f032c; /* Match site background */
 }
 
-div.scrollmenu a {
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #90ee90;
-  color: black;
-  white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Logo styling */
+.logo img {
+  height: 120px; /* Slightly reduced from homepage */
+  width: auto;
+  display: block;
 }
 
-.scrollmenu a.nav-link {
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Navigation menu */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
 }
 
-div.scrollmenu a.nav-link:hover {
-  background-color: #228b22;
-  color: white;
+.navbar ul li {
+  position: relative;
 }
 
-div.scrollmenu a.nav-link.active {
-  background-color: #32cd32;
-  color: white;
-  border: 2px solid #228b22;
+.navbar ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
 }
 
+/* Active link styling */
+.navbar ul li a.active {
+  color: #007bff;
+}
+
+/* Hover effect with underline animation */
+.navbar ul li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  width: 0%;
+  height: 2px;
+  background: #1a1f6d;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li:hover::after {
+  width: calc(100% - 24px);
+}
+
+/* Main content container to add spacing below navbar */
+.content-container {
+  padding-top: 20px;
+}
+
+/* Keep existing styles from here down */
 .content-box {
   background-color: #f8f9fa;
   color: #000;
@@ -50,12 +96,6 @@ div.scrollmenu a.nav-link.active {
   padding: 20px;
   margin: 10px 0 30px;
   text-align: center;
-}
-
-.nav-buttons {
-  margin-top: 15px;
-  display: flex;
-  gap: 10px;
 }
 
 section {
@@ -299,6 +339,45 @@ section {
   color: #007bff;
 }
 
+/* Homepage hero section styling */
+.hero {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.hero h1 {
+  font-size: 60px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Scroll button */
+.scroll-button {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 10px 22px;
+  background-color: #1a1f6d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+  background-color: #14194f;
+}
+
 /* Footer */
 footer {
   background-color: #004080;
@@ -319,20 +398,6 @@ footer {
   opacity: 0.8;
 }
 
-.sponsors {
-    color: #666;
-    margin-top: 0;
-}
-
-.sponsor-list {
-    background-color: white;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -349,8 +414,47 @@ footer {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Responsive adjustments */
+/* Ensure all text in appropriate containers is white */
+.project-box,
+.project-box h3,
+.project-row,
+.container,
+.header-aboutus,
+.FitBrainheader,
+.FitBrainheader h1,
+.FitBrainheader p,
+.section-title,
+.centered-heading,
+.site-header,
+.site-header h1,
+.game-header h1,
+.game-header h2,
+.game-header h3 {
+  color: white;
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px 5%;
+  }
+  
+  .logo img {
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  body {
+    padding-top: 150px; /* Adjust for stacked navbar in mobile */
+  }
+  
   .team-grid,
   .alumni-grid {
     grid-template-columns: 1fr;
@@ -360,170 +464,6 @@ footer {
     flex-direction: column;
     text-align: center;
   }
-
-  .section-title:after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .section-title {
-    text-align: center;
-  }
-
-  .profile-header {
-    padding: 15px;
-  }
-
-  .profile img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .header-banner {
-    padding: 40px 0;
-  }
-
-  .header-banner h1 {
-    font-size: 36px;
-  }
-
-  .header-banner p {
-    font-size: 18px;
-  }
-}
-
-/* === Global Reset & Base === */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* === Containers & Layout === */
-.homepage-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.homepage-section {
-  padding: 4rem 0;
-  background-color: #fff;
-  color: #000;
-  border-bottom: 1px solid #eee;
-}
-
-/* === Hero Section === */
-.homepage-hero {
-  background: linear-gradient(120deg, #0077b6, #00b4d8);
-  color: white;
-  padding: 6rem 2rem;
-  text-align: center;
-}
-
-.homepage-hero-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.homepage-hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.homepage-cta-button {
-  background-color: #fff;
-  color: #0077b6;
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.homepage-cta-button:hover {
-  background-color: #e0e0e0;
-}
-
-/* === Section Titles & Text === */
-.homepage-section-title {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.homepage-section-text {
-  font-size: 1.125rem;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* === Grid Layouts === */
-.homepage-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 2rem;
-}
-
-/* === Cards === */
-.homepage-card {
-  background-color: #f0f8ff;
-  color: #000;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.homepage-card-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-}
-
-.homepage-card-text {
-  font-size: 1rem;
-  color: #444;
-}
-
-/* === List (Recent Activity) === */
-.homepage-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 1.5rem;
-  font-size: 1.05rem;
-}
-
-.homepage-list li {
-  margin-bottom: 0.75rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-.homepage-list li::before {
-  content: '•';
-  color: #0077b6;
-  position: absolute;
-  left: 0;
-}
-
-.project-box,
-.project-box h3,
-.project-row,
-.container,
-.header-aboutus,
-.FitBrainheader,
-.FitBrainheader h1,
-.FitBrainheader p ,
-.section-title ,
-.centered-heading,
-.site-header,
-.site-header h1,
-.game-header h1,
-.game-header h2,
-.game-header h3 {
-  color: white;
 }
 
 /* === Research page === */
