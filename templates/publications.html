@@ -6,71 +6,181 @@
 <style>
   body {
     font-family: sans-serif;
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
-    padding: 20px;
+    padding: 160px;
   }
+  .group-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 30px 0 10px;
+  }
+  .publication-group {
+  max-width: 1000px; /* or any wider width */
+  margin: 0 auto 30px; /* center it horizontally */
+  padding: 15px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
   .publication {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     padding: 10px 0;
   }
-  .abstract {
-    display: none;
+  .publication:last-child {
+    border-bottom: none;
+  }
+  .details {
     margin-top: 5px;
   }
   .title {
-    cursor: pointer;
-    color: #0066cc;
+  cursor: pointer;
+  color: #004080;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 4px;
   }
-  .summary {
-    font-weight: bold;
-    margin-bottom: 20px;
+  .authors {
+    color: #000;
+    margin-top: 4px;
   }
+  .details {
+    margin-top: 8px;
+    color: #000; /* Make details text black */
+    font-size: 0.95em;
+  }
+  .year {
+  color: black;
+  font-weight: bold;
+  }
+  .title-text {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: white ;
+}
 </style>
-<body>Publications by FitBrainLab</body>
+<body>
+  <div class="title-text">Publications by FitBrainLab</div>
+</body>
 <div class="summary" id="summary"></div>
 
 <div id="publications"></div>
 
 <script>
-  const publications = [
-    {
-      title: "Understanding Climate Policy",
-      authors: "Smith J., Doe A.",
-      abstract: "This paper explores key mechanisms in international climate policy...",
-      link: "https://example.com/paper1",
-      citations: 15
-    },
-    {
-      title: "Emission Trends in Southeast Asia",
-      authors: "Lee C., Patel N.",
-      abstract: "We analyze emission data across ASEAN countries and highlight regional trends...",
-      link: "https://example.com/paper2",
-      citations: 8
-    }
-  ];
+  fetch("/static/publications.json")
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    return res.json();
+  })
+  .then(data => {
+    console.log('Data loaded:', data);
 
-  const container = document.getElementById('publications');
-  publications.forEach((pub) => {
-    const div = document.createElement('div');
-    div.className = 'publication';
-
-    const title = document.createElement('div');
-    title.className = 'title';
-    title.textContent = `${pub.title} — ${pub.authors}`;
-    title.onclick = () => {
-      const abs = div.querySelector('.abstract');
-      abs.style.display = abs.style.display === 'none' ? 'block' : 'none';
+    const groupedPublications = {
+      "FBL Data Articles": data.fbl_data_articles,
+      "FBL Review Articles": data.review_articles_fbl,
+      "Joram Data Articles": data.joram_data_articles,
+      "Joram Review Articles": data.review_articles_joram
     };
 
-    const abstract = document.createElement('div');
-    abstract.className = 'abstract';
-    abstract.innerHTML = `<p>${pub.abstract}</p><a href="${pub.link}" target="_blank">Read paper</a>`;
+    renderPublications(groupedPublications);
+  })
+  .catch(err => console.error("Failed to load publications JSON:", err));
 
-    div.appendChild(title);
-    div.appendChild(abstract);
-    container.appendChild(div);
+function renderPublications(groups) {
+  const container = document.getElementById('publications');
+  container.innerHTML = '';
+
+  Object.entries(groups).forEach(([groupTitle, publications]) => {
+    const groupHeader = document.createElement('div');
+    groupHeader.className = 'group-header';
+    groupHeader.textContent = groupTitle;
+    container.appendChild(groupHeader);
+
+    const groupBox = document.createElement('div');
+    groupBox.className = 'publication-group';
+
+    publications.forEach(pub => {
+      const div = document.createElement('div');
+      div.className = 'publication';
+
+      // Title
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = pub.title;
+
+      // Year 
+      const year = document.createElement('div');
+      year.className = 'year';
+
+      if (pub.year) {   
+        let yearText = `Published in ${pub.year}`;
+        if (pub.date) {
+          yearText += ` ${pub.date}`; // append date after year
+        }
+        year.textContent = yearText;
+      }
+      // Authors
+      const authors = document.createElement('div');
+      authors.className = 'authors';
+      const authorsArray = pub.authors.split(',').map(a => a.trim());
+      authors.textContent = authorsArray.length > 3
+        ? authorsArray.slice(0, 3).join(', ') + ', ...'
+        : authorsArray.join(', ');
+
+      // Details section
+      const details = document.createElement('div');
+      details.className = 'details';
+
+      // Journal
+      if (pub.journal) {
+        const journal = document.createElement('div');
+        journal.textContent = `Journal: ${pub.journal}`;
+        details.appendChild(journal);
+      }
+
+      const volParts = [];
+      if (pub.volume) volParts.push(`Volume: ${pub.volume}`);
+      if (pub.issue) volParts.push(`Issue: ${pub.issue}`);
+      if (pub.pages) volParts.push(`Pages: ${pub.pages}`);
+      if (volParts.length > 0) {
+        const volumeLine = document.createElement('div');
+        volumeLine.textContent = volParts.join(', ');
+        details.appendChild(volumeLine);
+      }
+
+      if (pub.editor) {
+        const editor = document.createElement('p');
+        editor.textContent = pub.editor;
+        details.appendChild(editor);
+      }
+
+      if (pub.doi) {
+        const doi = document.createElement('a');
+        doi.href = pub.doi;
+        doi.target = '_blank';
+        doi.textContent = 'Read paper';
+        doi.style.display = 'block';
+        doi.style.marginTop = '5px';
+        details.appendChild(doi);
+      }
+
+      div.appendChild(title);
+      div.appendChild(year);
+      div.appendChild(authors);
+      div.appendChild(details);
+
+      groupBox.appendChild(div);
+    });
+
+    container.appendChild(groupBox);
   });
+}
 </script>
+
+
+
 {% endblock %}
 
