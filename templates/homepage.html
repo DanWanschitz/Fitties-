@@ -5,9 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fit Brain Lab</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+  <!-- We'll use select styles from styles.css but not include the whole file -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <style>
     html {
       scroll-behavior: smooth;
+    }
+    
+    /* Override specific navbar styles for homepage - transparent but sized like other pages */
+    .navbar {
+      position: absolute; /* Keep absolute positioning for transparency */
+      top: 20px;
+      left: 6%;
+      right: 6%;
+      background-color: transparent; /* Keep transparent background */
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* Use exact font styling from styles.css */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .navbar ul li {
+      position: relative;
+    }
+    
+    /* Match font family and size exactly */
+    .navbar ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 18px; /* Match size from styles.css */
+      padding: 8px 12px; /* Match padding from styles.css */
+      transition: color 0.3s ease;
+      font-family: 'Helvetica Neue', Arial, sans-serif; /* Exact font from styles.css */
+    }
+    
+    /* Hover effect with underline animation from styles.css */
+    .navbar ul li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      width: 0%;
+      height: 2px;
+      background: #1a1f6d;
+      transition: width 0.3s ease;
+    }
+    
+    .navbar ul li:hover::after {
+      width: calc(100% - 24px);
+    }
+    
+    /* Active link styling */
+    .navbar ul li a.active {
+      color: #007bff;
+    }
+    
+    /* Override the Oswald font for navbar only */
+    .navbar * {
+      font-family: 'Helvetica Neue', Arial, sans-serif !important;
     }
   </style>
 </head>
@@ -15,11 +79,13 @@
   <div class="container">
     <div class="overlay"></div> 
     
+    <!-- Transparent navbar with styling from layout.html -->
     <nav class="navbar">
       <div class="logo">
         <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fit Brain Lab Logo" /></a>
       </div>
       <ul>
+        <li><a href="/" class="active">Home</a></li>
         <li><a href="/activity">Activity</a></li>
         <li><a href="/research">Research</a></li>
         <li><a href="/publications">Publications</a></li>
@@ -32,166 +98,105 @@
       <h1>Welcome to <br>Fit Brain Lab!</h1>
       <p>The Fit Brain Lab focuses on developing exercise-based strategies to enhance stress resilience, particularly in students. Our research explores how physical exercise influences brain mechanisms that help protect against stress.</p>
       <div class="buttons">
-        <a href="#publications" class="scroll-button">NEWS</a>
-        <a href="#activity" class="scroll-button">ACTIVITY</a>
-        <a href="#team" class="scroll-button">TEAM</a>
+        <a href="#projects" class="scroll-button">News</a>
+        <a href="#tips-and-tricks" class="scroll-button">Tips & Tricks</a>
+        <a href="#team" class="scroll-button">Team</a>
       </div>       
     </div>
   </div>
-</body>
-</html>
 
 <!-- GOAL AND MISSION -->
 <section id="our-goal-mission">
-  <div class="containerss">
-    <div class="text-box">
-      <h2>OUR GOAL</h2>
-      <p>At The Fit Brain Lab, our goal is to bridge the gap between physical exercise and mental well-being by exploring how physical activity can increase stress resilience, particularly among students. We aim to develop and implement evidence-based strategies that enhance mental health through exercise, ensuring that students can thrive in both academic and personal aspects of their lives.</p>
+  <div class="goalmission">
+    
+    <div class="goal-mission-item">
+      <div class="icon">
+        <img src="{{ url_for('static', filename='images/goal2.png') }}" alt="Goal Icon" />
+      </div>
+      <div class="text-box">
+        <h2>Our Goal</h2>
+        <p>At The Fit Brain Lab, our goal is to bridge the gap between physical exercise and mental well-being by exploring how physical activity can increase stress resilience, particularly among students. We aim to develop and implement evidence-based strategies that enhance mental health through exercise, ensuring that students can thrive in both academic and personal aspects of their lives.</p>
+      </div>
     </div>
-
-    <div class="text-box">
-      <h2>OUR MISSION</h2>
-      <p>The mission of The Fit Brain Lab is to optimize existing physical exercise strategies and develop innovative approaches that specifically target stress resilience, with a focus on students. By enhancing the biological mechanisms in the brain that are influenced by exercise, we strive to provide effective tools for students to manage stress and improve their mental well-being.</p>
+    
+    <div class="goal-mission-item">
+      <div class="icon">
+        <img src="{{ url_for('static', filename='images/success.png') }}" alt="Mission Icon" />
+      </div>
+      <div class="text-box">
+        <h2>Our Mission</h2>
+        <p>The mission of The Fit Brain Lab is to optimize existing physical exercise strategies and develop innovative approaches that specifically target stress resilience, with a focus on students. By enhancing the biological mechanisms in the brain that are influenced by exercise, we strive to provide effective tools for students to manage stress and improve their mental well-being.</p>
+      </div>
     </div>
+    
   </div>
 </section>
+
   
-<!-- PUBLICATIONS SECTION -->
-<section id="publications" class="publications">
-  <h2>Recent Publications</h2>
-  <div class="publication-list">
-     <div class="publication-item">
-      <img src="{{ url_for('static', filename='images/publication1.jpg') }}" alt="Publication 1">
-      <p><strong>Title of Publication 1</strong><br>Author(s), Year</p>
+<!-- PROJECTS SECTION -->
+<section id="projects" class="projects">
+  <h2>Recent Projects</h2>
+  <div class="projects-list">
+     <div class="projects-item">
+      <img src="{{ url_for('static', filename='images/stf.jpg') }}" alt="Project 1">
+      <p><strong>StayFine</strong><br>StayFine is a study to prevent relapse in adolescents (13–21) recovering from depression or anxiety. Using a personalized app, participants are tracked over three years through interviews, surveys, wearables and daily assessments. We explore the role of physical activity in staying well.<br/>
+        <em>Partners: GGZ Oost Brabant, Amsterdam UMC and University of Groningen.</em></p>
     </div>
-    <div class="publication-item">
-      <img src="{{ url_for('static', filename='images/publication2.jpg') }}" alt="Publication 2">
-      <p><strong>Title of Publication 2</strong><br>Author(s), Year</p>
+    <div class="projects-item">
+      <img src="{{ url_for('static', filename='images/leopard.jpg') }}" alt="Project 2">
+      <p><strong>LEOPARD PREDICT</strong><br>This study aims to predict antidepressant treatment response in depressed adults (18–60) within two weeks using brain imaging (rsfMRI). We also explore whether adding physical activity data improves prediction accuracy.<br/>
+      <em>Partners: Amsterdam UMC and RadboudUMC.</em></p>
   </div>
-    <div class="publication-item">
-      <img src="{{ url_for('static', filename='images/publication3.jpg') }}" alt="Publication 3">
-      <p><strong>Title of Publication 3</strong><br>Author(s), Year</p>
+    <div class="projects-item">
+      <img src="{{ url_for('static', filename='images/stride4.jpg') }}" alt="Project 3">
+      <p><strong>STRIDE-4-Mental Health</strong><br>STRIDE-4 studies how exercise helps university students manage stress, mental health and academics. We analyze factors that support lasting exercise habits and will develop an online intervention with education, planning and peer support.<br/>
+      <em>Partners: USC Amsterdam, VU Sport Center, HvA and ROCs Amsterdam & Flevoland.</em></p>
     </div>
   </div>
   <div class="explore-button-container">
-    <a href="/publications" class="explore-button">View All Publications</a>
+    <a href="/research" class="explore-button">View All Projects</a>
   </div>
 </section> 
 
-<!-- PHYSICAL ACTIVITY -->
-<section id="activity" class="activity">
-
-<section class="activity-preview-section">
-  <h2>Physical Activity</h2>
-  <div class="activity-scroll-container">
-    <div class="scroll-items">
-      <!-- Activity Cards -->
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/dancing.jpeg') }}" alt="Dancing">
-        <div class="overlay">Dancing</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/football.jpg') }}" alt="Football">
-        <div class="overlay">Football</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/baseball.webp') }}" alt="Baseball">
-        <div class="overlay">Baseball</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/volleyball.jpg') }}" alt="Volleyball">
-        <div class="overlay">Volleyball</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/hockey.avif') }}" alt="Hockey">
-        <div class="overlay">Hockey</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/rugby.webp') }}" alt="Rugby">
-        <div class="overlay">Rugby</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/tennis.jpg') }}" alt="Tennis">
-        <div class="overlay">Tennis</div>
-      </div>
+<!-- TIPS AND TRICKS SECTION -->
+<section id="tips-and-tricks" class="tips-and-tricks">
+  <div class="tips-and-tricks-container">
+    <div class="games-text-block">
+      <h3>Train the Brain</h3>
+      <p>Sharpen your memory and focus with a game that's as fun as it is beneficial. Regular cognitive training can boost attention, improve recall, and keep your mind sharp. Ready to challenge yourself?</p>
+      <a href="/game" class="btn-link">Play Now</a>
     </div>
 
-    <!-- Duplicate for looping effect -->
-    <div class="scroll-items duplicate">
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/dancing.jpeg') }}" alt="Dancing">
-        <div class="overlay">Dancing</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/football.jpg') }}" alt="Football">
-        <div class="overlay">Football</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/baseball.webp') }}" alt="Baseball">
-        <div class="overlay">Baseball</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/volleyball.jpg') }}" alt="Volleyball">
-        <div class="overlay">Volleyball</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/hockey.avif') }}" alt="Hockey">
-        <div class="overlay">Hockey</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/rugby.webp') }}" alt="Rugby">
-        <div class="overlay">Rugby</div>
-      </div>
-      <div class="scroll-card">
-        <img src="{{ url_for('static', filename='images/tennis.jpg') }}" alt="Tennis">
-        <div class="overlay">Tennis</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Explore Button -->
-  <div class="explore-button-container">
-    <a href="{{ url_for('activity') }}" class="explore-button">Explore All Activities</a>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" class="team">
-  <h2>Meet the Team!</h2>
-  
-  <!-- Introduction Text -->
-  <p>We are a passionate team of researchers dedicated to improving mental health through physical activity. Get to know the minds behind the Fit Brain Lab!</p>
-
-  <!-- Team Layout with Photo on the Left and Members on the Right -->
-  <div class="team-container">
-    <!-- Left: Team Photo -->
-    <div class="team-photo-container">
-      <img src="{{ url_for('static', filename='images/team.jpg') }}" alt="Team Photo" class="team-photo">
+    <div class="games-image-block">
+      <img src="{{ url_for('static', filename='images/braintrain.png') }}" alt="Train the Brain" />
     </div>
 
-    <!-- Right: Team Member Photos -->
-    <div class="team-members">
-      <div class="team-member">
-        <img src="{{ url_for('static', filename='images/member1.jpeg') }}" alt="Member 1" class="member-photo">
-        <h3>Joram Mul</h3>
-      </div>
-      <div class="team-member">
-        <img src="{{ url_for('static', filename='images/member2.jpeg') }}" alt="Member 2" class="member-photo">
-        <h3>Marene Hardonk</h3>
-      </div>
-      <div class="team-member">
-        <img src="{{ url_for('static', filename='images/member3.jpeg') }}" alt="Member 3" class="member-photo">
-        <h3>Anneke Vuuregge</h3>
-      </div>
-      <div class="team-member">
-        <img src="{{ url_for('static', filename='images/member4.jpeg') }}" alt="Member 4" class="member-photo">
-        <h3>Kasia Lasek</h3>
-      </div>
+    <div class="tips-text-block">
+      <h3>Tips & Tricks</h3>
+      <p>Whether it's a full workout or a quick stretch, every bit of movement counts. Go for a run, take the stairs, dance around your room. Big or small, staying active keeps your body and mind strong.</p>
+      <a href="/tips-and-tricks" class="btn-link">Tips & Tricks</a>
     </div>
   </div>
 </section>
 
+<!-- TEAM SECTION -->
+<section id="team" class="team-section">
+  <div class="team-wrapper">
+    <div class="team-image">
+      <img src="{{ url_for('static', filename='images/team.jpg') }}" alt="Fit Brain Lab Team Photo" />
+    </div>
+    <div class="team-text">
+      <h2>Meet Our Team</h2>
+      <p>We believe that diversity sparks creativity and fosters a culture of openness, which drives innovative research and meaningful results.
 
+        We're always excited to meet people who bring big ideas, thrive in fast-paced environments, stay positive, and have an unwavering commitment to teamwork and solving challenging problems.</p>
+      <p><strong>Dr. Joram Mul</strong> - Principal Investigator<br>
+         <strong>Marene Hardonk</strong> - MSc, PhD Student<br>
+         <strong>Anneke Vuuregge</strong> - MSc, PhD Student<br>
+         <strong>Katarzyna (Kasia) Lasek</strong> - MSc, PhD Student</p>
+      <a href="/join-us" class="team-button">About Us</a>
+    </div>
+  </div>
+</section>
 </body>
 </html>
-
