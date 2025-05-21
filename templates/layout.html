@@ -1,50 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 60px; 
-  margin-left: 1rem;
-}
-
-      .logo {
-    height: 80px !important;
-    width: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-        .logo-text {
-        font-size: 0.8rem;
-        text-align: center;
-        margin-top: 2px;
-        }
-    </style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-   
     <title>{% block title %}Fitbrain Lab{% endblock %}</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-<body class="{% block body_class %}{% endblock %}">
-    <div class="scrollmenu">
-        <a href="/" class="btn btn-primary nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
-        <a href="/activity" class="btn btn-primary nav-link {% if request.path == '/activity' %}active{% endif %}">Activity</a>
-        <a href="/research" class="btn btn-primary nav-link {% if request.path == '/research' %}active{% endif %}">Research</a>
-        <a href="/publications" class="btn btn-primary nav-link {% if request.path == '/publications' %}active{% endif %}">Publications</a>
-        <a href="/aboutus" class="btn btn-primary nav-link {% if request.path == '/aboutus' %}active{% endif %}">About Us</a>
-        <a href="/gamepage" class="btn btn-primary nav-link {% if request.path == '/gamepage' %}active{% endif %}">FitBrain Game</a>
-    </div>
-    
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fit Brain Lab Logo" class="logo">
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fit Brain Lab Logo" /></a>
+        </div>
+        <ul>
+            <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href="/activity" class="{% if request.path == '/activity' %}active{% endif %}">Activity</a></li>
+            <li><a href="/research" class="{% if request.path == '/research' %}active{% endif %}">Research</a></li>
+            <li><a href="/publications" class="{% if request.path == '/publications' %}active{% endif %}">Publications</a></li>
+            <li><a href="/aboutus" class="{% if request.path == '/aboutus' %}active{% endif %}">About Us</a></li>
+            <li><a href="/gamepage" class="{% if request.path == '/gamepage' %}active{% endif %}">Brain Games</a></li>
+        </ul>
+    </nav>
 
-    {% block content %}{% endblock %}
+    <div class="content-container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
