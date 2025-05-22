@@ -12,7 +12,7 @@
         }
     </style>
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <nav class="navbar">
         <div class="logo">
             <a href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fit Brain Lab Logo" /></a>
