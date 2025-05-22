@@ -30,6 +30,7 @@ body {
   padding: 20px 6%; /* Consistent padding */
   z-index: 1000; /* Ensure navbar stays on top */
   background-color: #0f032c; /* Match site background */
+  font-family: 'Oswald', sans-serif;
 }
 
 /* Logo styling */
