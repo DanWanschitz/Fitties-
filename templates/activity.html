@@ -5,22 +5,49 @@
 
 {% block content %}
 
+<section class="tips-section">
+  <h2 class="centered-heading"><strong>Tips and Tricks</strong></h2>
+</section>
 
-  <h1 class="centered-heading">Tips and Tricks</h1>
-
-  <h2 class="centered-heading">Quick Swaps</h2>
-  <div class="content-box">
-    <ul>
-      <li>Take the stairs</li>
-      <li>Bike or walk short distances instead of driving or taking public transport</li>
-      <li>Stand or walk while talking on the phone</li>
-      <li>Get off the bus one stop from your destination</li>
-    </ul>
-  </div>
-
-  <section>
-    <h2 class="centered-heading">Build a Habit</h2>
-    <div class="content-box">
+  <section class="fun-facts-section">
+    <h2 class="centered-heading">Fun Facts About Exercise</h2>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <img src="{{ url_for('static', filename='music improves workout.png') }}" alt="Start Small Icon">
+        <h4>Music Improves Workout Performance</h4>
+        <p>Listening to music while exercising can improve performance by up to 15%.</p>
+      </div>
+      <div class="fact-card">
+        <img src="{{ url_for('static', filename='exercise improves brain.png') }}" alt="Start Small Icon">
+        <h4>Exercise Improves Brain Function</h4>
+        <p>Cardio increases blood flow and helps your brain grow new neural connections.</p>
+      </div>
+      <div class="fact-card">
+        <img src="{{ url_for('static', filename='productivity.png') }}" alt="Start Small Icon">
+        <h4>Increases productivity</h4>
+        <p>Exercising increases the number of endorphins that are released into your body and increases productivity.</p>
+      </div>
+      <div class="fact-card">
+        <img src="{{ url_for('static', filename='aging.png') }}" alt="Start Small Icon">
+        <h4>Exercise Slows Signs of Aging</h4>
+        <p>Regular physical activity helps maintain muscle, skin health, and mental sharpness.</p>
+      </div>
+      <div class="fact-card">
+        <img src="{{ url_for('static', filename='improves immunity.png') }}" alt="Start Small Icon">
+        <h4>Exercise Strengthens Immunity</h4>
+        <p>Active individuals are less likely to get sick thanks to improved immune function.</p>
+      </div>
+      <div class="fact-card">
+        <img src="{{ url_for('static', filename='improved sleeping.png') }}" alt="Start Small Icon">
+        <h4>Exercise Improves Sleep</h4>
+        <p>Physical activity helps regulate your sleep cycle and reduces insomnia symptoms.</p>
+      </div>
+    </div>  
+  </section>
+    
+    <section class="build-habit-section">
+    <h2 class="centered-heading"><strong>Build a Habit</strong></h2>
+    <div class="habit-intro-text">
       <p>
         Building a routine creates structure in your day and helps reduce mental clutter. When you anchor physical activity to regular parts of your schedule — like a set time after meals or before studying — it becomes easier to follow through without having to think about it. Over time, routines create a sense of stability and control, which can support better sleep, sharper focus, and improved emotional well-being. The goal isn’t perfection — it’s simply showing up for yourself in small, repeatable ways that build momentum.
       </p>
@@ -42,18 +69,8 @@
         <h4>Track Progress</h4>
         <p>Use a habit tracker or calendar to visually see your progress and stay motivated.</p>
       </div>
-    </div>    
-  </section>
-  
-
-  <h2 class="centered-heading">Stay Motivated</h2>
-  <div class="content-box">
-    <ul>
-      <li>Use fitness trackers</li>
-      <li>Set small goals</li>
-      <li>Train with a friend</li>
-    </ul>
-  </div>
+    </div>  
+    </section> 
 
   <h2 class="centered-heading">On Campus</h2>
   <div class="content-box">
