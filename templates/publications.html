@@ -179,18 +179,25 @@ function renderPublications(groups) {
   });
 }
 </script>
-<footer>
-    <div class="container">
-        <nav class="footer-nav">
-              <a href="/" class="active">Home</a><br>
-              <a href="/activity">Activity</a><br>
-              <a href="/research">Research</a><br>
-              <a href="/about_us">About Us</a><br>
-              <a href="/gamepage">Brain Games</a><br>
-        </nav>
-        <p class="copyright">© Fitbrain Lab - University of Amsterdam</p>
-        <p class="footer-info">Swammerdam Institute for Life Sciences, Faculty of Science</p>
+<!-- FOOTER SECTION -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Fit Brain Lab Logo" />
     </div>
+    <div class="footer-nav">
+      <a href="/">Home</a>
+      <a href="/activity">Activity</a>
+      <a href="/research">Research</a>
+      <a href="/publications">Publications</a>
+      <a href="/about_us">About Us</a>
+      <a href="/gamepage">Brain Games</a>
+    </div>
+    <div class="footer-info">
+      <p>&copy; 2025 © Fitbrain Lab - University of Amsterdam</p>
+      <p>Swammerdam Institute for Life Sciences, Faculty of Science</p>
+    </div>
+  </div>
 </footer>
 
 
