@@ -180,12 +180,12 @@ section p {
 
 .text-box h2 {
   margin-top: 0;
-  font-size: 1.6rem;  
+  font-size: 36px;  
   color: #000000;
 }
 
 .text-box p {
-  font-size: 0.9rem; 
+  font-size: 16px; 
   line-height: 1.4;
   color: #000000;
   margin: 0;
@@ -200,7 +200,7 @@ section p {
 }
 
 .projects h2 {
-  font-size: 2rem;
+  font-size: 36px;
   margin-bottom: 30px;
 }
 
@@ -229,7 +229,7 @@ section p {
 
 .projects-item p {
   margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #333;
   text-align: left;
 }
@@ -278,13 +278,13 @@ section p {
 
 .games-text-block h3,
 .tips-text-block h3 {
-  font-size: 1.8rem;
+  font-size: 36px;
   margin-bottom: 8px;
 }
 
 .games-text-block p,
 .tips-text-block p {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   color: #333;
 }
 
@@ -345,13 +345,13 @@ section p {
 }
 
 .team-text h2 {
-  font-size: 2.8rem;
+  font-size: 36px;
   margin-bottom: 20px;
   color: white; 
 }
 
 .team-text p {
-  font-size: 1.1rem;
+  font-size: 16px;
   line-height: 1.6;
   margin-bottom: 16px;
   color: white;
