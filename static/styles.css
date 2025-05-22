@@ -472,6 +472,7 @@ footer {
   width: 100%;
   margin: 20px 0;
   color: #0f032c;
+  font-family: 'Oswald', sans-serif;
 }
 
 /* Override for white titles on dark sections */
@@ -618,7 +619,8 @@ footer {
 .fact-card h4 {
   color: #0f032c;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 28px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .fact-card:hover {
