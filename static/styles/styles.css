@@ -587,6 +587,10 @@ footer {
   border: none;
 }
 
+.tips-section h2{
+  font-size: 40px;
+}
+
 .tips-section .centered-heading,
 .tips-section h1.centered-heading,
 .tips-section h2.centered-heading {
