@@ -204,6 +204,11 @@ section p {
   margin-bottom: 30px;
 }
 
+.projects h3 {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
 .projects-list {
   display: flex;
   justify-content: center;
