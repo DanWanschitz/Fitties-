@@ -12,7 +12,7 @@
 
   .main-content {
     max-width: 1200px;
-    margin: 160px auto 0 auto; /* top padding via margin */
+    margin: 0 auto; 
     padding: 0 20px;
   }
     .group-header {
@@ -22,7 +22,7 @@
   }
   .publication-group {
   max-width: 1000px; /* or any wider width */
-  margin: 0 auto 30px; /* center it horizontally */
+  margin: 0 auto 30px; 
   padding: 15px 20px;
   background: white;
   border-radius: 12px;
@@ -66,125 +66,178 @@
   margin-top: 20px;
   color: white ;
 }
+  #search-controls {
+  display: flex;
+  justify-content: space-between; /* space out the items */
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #0f032c; 
+  border: 2px solid #0f032c; 
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+
+  #search-controls input,
+  #search-controls select {
+    flex: 1 1 30%;
+    min-width: 0; 
+    padding: 8px;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+  }
+
+
+  #search-controls input::placeholder {
+    color: black;
+  }
+
+  #search-controls input:focus,
+  #search-controls select:focus {
+    outline: none;
+    border-color: white;
+    background-color: white;
+  }
+
 </style>
 <body>
+  <div id="search-controls" style="margin-bottom: 20px; padding: 10px; background: #0f032c; border: 1px solid #0f032c;">
+  <input type="text" id="searchInput" placeholder="Search by title..." style="padding: 5px; width: 60%;">
+
+  <select id="researchTypeFilter" style="padding: 5px;">
+    <option value="">All Research Types</option>
+    <option value="lab">Lab-led Research</option>
+    <option value="individual">Individual-led Research</option>
+  </select>
+
+  <select id="articleTypeFilter" style="padding: 5px;">
+    <option value="">All Article Types</option>
+    <option value="data">Data Articles</option>
+    <option value="review">Review/Opinion Articles</option>
+  </select>
+</div>
+
   <div class="main-content">
   <div class="title-text">Publications by FitBrainLab</div>
   <div class="summary" id="summary"></div>
   <div id="publications"></div>
 </div>
 <script>
-  fetch("/static/publications.json")
+  let allPublications = [];
+
+fetch("/static/publications.json")
   .then(res => {
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     return res.json();
   })
   .then(data => {
-    console.log('Data loaded:', data);
-
-    const groupedPublications = {
-      "FBL Data Articles": data.fbl_data_articles,
-      "FBL Review Articles": data.review_articles_fbl,
-      "Joram Data Articles": data.joram_data_articles,
-      "Joram Review Articles": data.review_articles_joram
-    };
-
-    renderPublications(groupedPublications);
+    allPublications = [
+      ...data.fbl_data_articles.map(pub => ({ ...pub, research: "lab", type: "data" })),
+      ...data.review_articles_fbl.map(pub => ({ ...pub, research: "lab", type: "review" })),
+      ...data.joram_data_articles.map(pub => ({ ...pub, research: "individual", type: "data" })),
+      ...data.review_articles_joram.map(pub => ({ ...pub, research: "individual", type: "review" }))
+    ];
+    renderPublications(allPublications);
   })
   .catch(err => console.error("Failed to load publications JSON:", err));
 
-function renderPublications(groups) {
+// Add listeners for filters
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
+  const researchTypeFilter = document.getElementById("researchTypeFilter");
+  const articleTypeFilter = document.getElementById("articleTypeFilter");
+
+  [searchInput, researchTypeFilter, articleTypeFilter].forEach(el => {
+    el.addEventListener("input", () => {
+      const filtered = allPublications.filter(pub => {
+        const matchesTitle = pub.title.toLowerCase().includes(searchInput.value.toLowerCase());
+        const matchesResearch = !researchTypeFilter.value || pub.research === researchTypeFilter.value;
+        const matchesType = !articleTypeFilter.value || pub.type === articleTypeFilter.value;
+        return matchesTitle && matchesResearch && matchesType;
+      });
+      renderPublications(filtered);
+    });
+  });
+});
+
+function renderPublications(publications) {
   const container = document.getElementById('publications');
   container.innerHTML = '';
 
-  Object.entries(groups).forEach(([groupTitle, publications]) => {
-    const groupHeader = document.createElement('div');
-    groupHeader.className = 'group-header';
-    groupHeader.textContent = groupTitle;
-    container.appendChild(groupHeader);
+  const groupBox = document.createElement('div');
+  groupBox.className = 'publication-group';
 
-    const groupBox = document.createElement('div');
-    groupBox.className = 'publication-group';
+  publications.forEach(pub => {
+    const div = document.createElement('div');
+    div.className = 'publication';
 
-    publications.forEach(pub => {
-      const div = document.createElement('div');
-      div.className = 'publication';
+    const title = document.createElement('div');
+    title.className = 'title';
+    title.textContent = pub.title;
 
-      // Title
-      const title = document.createElement('div');
-      title.className = 'title';
-      title.textContent = pub.title;
-
-      // Year 
-      const year = document.createElement('div');
-      year.className = 'year';
-
-      if (pub.year) {   
-        let yearText = `Published in ${pub.year}`;
-        if (pub.date) {
-          yearText += ` ${pub.date}`; // append date after year
-        }
-        year.textContent = yearText;
+    const year = document.createElement('div');
+    year.className = 'year';
+    if (pub.year) {
+      let yearText = `Year: ${pub.year}`;
+      if (pub.date) {
+        yearText += ` ${pub.date}`;
       }
-      // Authors
-      const authors = document.createElement('div');
-      authors.className = 'authors';
-      const authorsArray = pub.authors.split(',').map(a => a.trim());
-      authors.textContent = authorsArray.length > 3
-        ? authorsArray.slice(0, 3).join(', ') + ', ...'
-        : authorsArray.join(', ');
+      year.textContent = yearText;
+    }
 
-      // Details section
-      const details = document.createElement('div');
-      details.className = 'details';
+    const authors = document.createElement('div');
+    authors.className = 'authors';
+    const authorsArray = pub.authors.split(',').map(a => a.trim());
+    authors.textContent = authorsArray.length > 3
+      ? authorsArray.slice(0, 3).join(', ') + ', ...'
+      : authorsArray.join(', ');
 
-      // Journal
-      if (pub.journal) {
-        const journal = document.createElement('div');
-        journal.textContent = `Journal: ${pub.journal}`;
-        details.appendChild(journal);
-      }
+    const details = document.createElement('div');
+    details.className = 'details';
+    details.style.marginTop = '5px';
 
-      const volParts = [];
-      if (pub.volume) volParts.push(`Volume: ${pub.volume}`);
-      if (pub.issue) volParts.push(`Issue: ${pub.issue}`);
-      if (pub.pages) volParts.push(`Pages: ${pub.pages}`);
-      if (volParts.length > 0) {
-        const volumeLine = document.createElement('div');
-        volumeLine.textContent = volParts.join(', ');
-        details.appendChild(volumeLine);
-      }
+    const parts = [];
+    if (pub.journal) parts.push(`Journal: ${pub.journal}`);
 
-      if (pub.editor) {
-        const editor = document.createElement('p');
-        editor.textContent = pub.editor;
-        details.appendChild(editor);
-      }
+    const volParts = [];
+    if (pub.volume) volParts.push(`Volume: ${pub.volume}`);
+    if (pub.issue) volParts.push(`Issue: ${pub.issue}`);
+    if (pub.pages) volParts.push(`Pages: ${pub.pages}`);
+    if (volParts.length > 0) parts.push(volParts.join(', '));
 
-      if (pub.doi) {
-        const doi = document.createElement('a');
-        doi.href = pub.doi;
-        doi.target = '_blank';
-        doi.textContent = 'Read paper';
-        doi.style.display = 'block';
-        doi.style.marginTop = '5px';
-        details.appendChild(doi);
-      }
+    const journalInfo = document.createElement('div');
+    journalInfo.textContent = parts.join(' ');
+    details.appendChild(journalInfo);
 
-      div.appendChild(title);
-      div.appendChild(year);
-      div.appendChild(authors);
-      div.appendChild(details);
+    if (pub.editor) {
+      const editor = document.createElement('p');
+      editor.textContent = pub.editor;
+      details.appendChild(editor);
+    }
 
-      groupBox.appendChild(div);
-    });
+    if (pub.doi) {
+      const doi = document.createElement('a');
+      doi.href = pub.doi;
+      doi.target = '_blank';
+      doi.textContent = 'Read paper';
+      details.appendChild(doi);
+    }
 
-    container.appendChild(groupBox);
+    div.appendChild(title);
+    div.appendChild(year);
+    div.appendChild(authors);
+    div.appendChild(details);
+    groupBox.appendChild(div);
   });
+
+  container.appendChild(groupBox);
 }
+
 </script>
-
-
 {% endblock %}
-
-
