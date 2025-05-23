@@ -1,0 +1,283 @@
+{% extends "layout.html" %}
+
+{% block title %}Memory Maze - Fitbrain Lab{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    text-align: center;
+    margin-top: 20px;
+  }
+  #grid {
+    display: grid;
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    min-height: 300px;
+  }
+  .cell {
+    width: 60px;
+    height: 60px;
+    background-color: lightgray;
+    border: 2px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+  .correct {
+    background-color: lightgreen;
+  }
+  .wrong {
+    background-color: red;
+  }
+  .missed {
+    background-color: gold;
+  }
+  #nextLevelBtn, #restartBtn {
+    display: none;
+    margin-top: 20px;
+  }
+  #message, #livesDisplay {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  #gameOverText {
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+    display: none;
+  }
+</style>
+<div class="container mt-3 d-flex justify-content-start">
+  <a href="/gamepage" class="btn btn-secondary">
+    ← Back to Brain Games
+  </a>
+</div>
+
+<div class="game-header">
+    <h1>Memory Maze</h1>
+    <h2 id="levelDisplay">Level 1</h2>
+    <h3 id="livesDisplay">Lives: 3 ❤️❤️❤️</h3>
+</div>
+
+<button id="startBtn" class="btn btn-primary">Start</button>
+<button id="nextLevelBtn" class="btn btn-success">Next Level</button>
+<button id="restartBtn" class="btn btn-danger">Retry Level</button>
+
+<div id="gameOverText"></div>
+<div id="grid"></div>
+<div id="message"></div>
+  <script>
+    const grid = document.getElementById('grid');
+    const startBtn = document.getElementById('startBtn');
+    const nextLevelBtn = document.getElementById('nextLevelBtn');
+    const restartBtn = document.getElementById('restartBtn');
+    const levelDisplay = document.getElementById('levelDisplay');
+    const livesDisplay = document.getElementById('livesDisplay');
+    const message = document.getElementById('message');
+    const gameOverText = document.getElementById('gameOverText');
+
+    let correctCells = new Set();
+    let clickedCorrect = new Set();
+    let clickable = false;
+    let gridSize = 3;
+    let level = 1;
+    let lives = 3;
+    let playing = true;
+    let memorizationTimer = null;
+    let isMemorizing = false;
+    let savedCorrectCells = [];
+
+    function createGrid(size) {
+      grid.innerHTML = '';
+      grid.style.gridTemplateColumns = `repeat(${size}, 60px)`;
+      for (let i = 0; i < size * size; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.dataset.index = i;
+        cell.addEventListener('click', cellClicked);
+        grid.appendChild(cell);
+      }
+    }
+
+    function highlightRandomCells() {
+      correctCells.clear();
+      clickedCorrect.clear();
+      const cells = document.querySelectorAll('.cell');
+      const numberToHighlight = Math.floor(gridSize + 2);
+
+      while (correctCells.size < numberToHighlight) {
+        let randomIndex = Math.floor(Math.random() * cells.length);
+        correctCells.add(randomIndex);
+      }
+
+      savedCorrectCells = [...correctCells];
+
+      correctCells.forEach(index => {
+        cells[index].classList.add('highlight');
+      });
+
+      isMemorizing = true;
+      clickable = false;
+
+      const memorizationTime = 2000 + (level * 500);
+
+      memorizationTimer = setTimeout(() => {
+        endMemorization();
+      }, memorizationTime);
+    }
+
+    function endMemorization() {
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach(cell => cell.classList.remove('highlight'));
+      clickable = true;
+      isMemorizing = false;
+      memorizationTimer = null;
+    }
+
+    function cellClicked(event) {
+      const index = parseInt(event.target.dataset.index);
+
+      if (isMemorizing) {
+        clearTimeout(memorizationTimer);
+        endMemorization();
+      }
+
+      if (!clickable || !playing) return;
+
+      if (correctCells.has(index)) {
+        event.target.classList.add('correct');
+        clickedCorrect.add(index);
+        correctCells.delete(index);
+
+        if (correctCells.size === 0) {
+          clickable = false;
+          nextLevelBtn.style.display = 'inline-block';
+          message.textContent = `Well done! Go to Level ${level + 1}`;
+        }
+      } else {
+        event.target.classList.add('wrong');
+        clickable = false;
+        lives--;
+
+        updateLives();
+
+        if (lives > 0) {
+          showMistakesAfterLifeLoss();
+        } else {
+          playing = false;
+          setTimeout(() => {
+            fullGameOver();
+          }, 1500);
+        }
+      }
+    }
+
+    function showMistakesAfterLifeLoss() {
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach(cell => {
+        const idx = parseInt(cell.dataset.index);
+        cell.style.pointerEvents = 'none';
+        if (clickedCorrect.has(idx)) {
+          cell.classList.add('correct');
+        } else if (savedCorrectCells.includes(idx)) {
+          cell.classList.add('missed');
+        }
+      });
+
+      message.textContent = `You lost a life! Click "Retry Level" to try again.`;
+      restartBtn.textContent = "Retry Level";
+      restartBtn.style.display = 'inline-block';
+    }
+
+    function updateLives() {
+      livesDisplay.innerHTML = `Lives: ${lives} ` + "❤️".repeat(lives);
+    }
+
+    function startGame() {
+      level = 1;
+      gridSize = 3;
+      lives = 3;
+      playing = true;
+      message.textContent = '';
+      gameOverText.style.display = 'none';
+      levelDisplay.textContent = `Level ${level}`;
+      updateLives();
+      startBtn.style.display = 'none';
+      nextLevelBtn.style.display = 'none';
+      restartBtn.style.display = 'none';
+      createGrid(gridSize);
+      highlightRandomCells();
+    }
+
+    function retryLevel() {
+      message.textContent = '';
+      restartBtn.style.display = 'none';
+      createGrid(gridSize);
+      correctCells = new Set(savedCorrectCells);
+      clickedCorrect.clear();
+      const cells = document.querySelectorAll('.cell');
+      correctCells.forEach(index => {
+        cells[index].classList.add('highlight');
+      });
+
+      isMemorizing = true;
+      clickable = false;
+      
+      const memorizationTime = 2000 + (level * 500);
+      memorizationTimer = setTimeout(() => {
+        endMemorization();
+      }, memorizationTime);
+    }
+
+    function nextLevel() {
+      level++;
+      gridSize++;
+      playing = true;
+      message.textContent = '';
+      gameOverText.style.display = 'none';
+      levelDisplay.textContent = `Level ${level}`;
+      nextLevelBtn.style.display = 'none';
+      createGrid(gridSize);
+      highlightRandomCells();
+    }
+
+    function fullGameOver() {
+      gameOverText.innerHTML = `Game Over<br>Reached Level ${level}`;
+      gameOverText.style.display = 'block';
+
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach(cell => {
+        const idx = parseInt(cell.dataset.index);
+        cell.style.pointerEvents = 'none';
+        if (clickedCorrect.has(idx)) {
+          cell.classList.add('correct');
+        } else if (savedCorrectCells.includes(idx)) {
+          cell.classList.add('missed');
+        }
+      });
+
+      restartBtn.textContent = "Restart Game";
+      restartBtn.style.display = 'inline-block';
+    }
+
+    startBtn.addEventListener('click', startGame);
+    nextLevelBtn.addEventListener('click', nextLevel);
+    restartBtn.addEventListener('click', function() {
+      if (lives > 0) {
+        retryLevel();
+      } else {
+        startGame();
+      }
+    });
+  </script>
+
+{% endblock %}
+

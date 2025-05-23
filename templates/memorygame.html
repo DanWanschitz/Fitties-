@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+  {% block title %}Memory{% endblock %}
+
+  {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='game.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-3 d-flex justify-content-start">
+  <a href="/gamepage" class="btn btn-secondary">
+    ← Back to Brain Games
+  </a>
+</div>
+
+  <div class="memory-game-container">
+    <h2>Memory Game</h2>
+    <div class="memory-game" id="game-board">
+    </div>
+    <button id="restart-btn">Restart</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const allRounds = [
+      ['🧠', '💡', '📚', '🏃'],       
+      ['🧠', '💡', '📚', '🏃','🧘'], 
+      ['🧠', '💡', '📚', '🏃', '🧘', '🎯'] 
+    ];
+  
+    const gameBoard = document.getElementById('game-board');
+    const restartBtn = document.getElementById('restart-btn');
+    let flippedCards = [];
+    let lockBoard = false;
+    let matchedPairs = 0;
+    let round = 0;
+  
+    function createCards() {
+      flippedCards = [];
+      lockBoard = false;
+      matchedPairs = 0;
+      gameBoard.innerHTML = '';
+      const emojis = allRounds[round];
+      const cardValues = [...emojis, ...emojis];
+      cardValues.sort(() => 0.5 - Math.random());
+  
+      cardValues.forEach(emoji => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.card = emoji;
+        card.innerHTML = '<span style="visibility:hidden;">' + emoji + '</span>';
+        card.addEventListener('click', flipCard);
+        gameBoard.appendChild(card);
+      });
+    }
+  
+    function flipCard() {
+      if (lockBoard || this.classList.contains('flipped')) return;
+  
+      const emoji = this.dataset.card;
+      this.classList.add('flipped');
+      this.innerHTML = '<span>' + emoji + '</span>';
+      flippedCards.push(this);
+  
+      if (flippedCards.length === 2) {
+        checkForMatch();
+      }
+    }
+  
+    function checkForMatch() {
+      const [card1, card2] = flippedCards;
+      const isMatch = card1.dataset.card === card2.dataset.card;
+  
+      if (!isMatch) {
+        lockBoard = true;
+        setTimeout(() => {
+          card1.classList.remove('flipped');
+          card2.classList.remove('flipped');
+          card1.innerHTML = '<span style="visibility:hidden;">' + card1.dataset.card + '</span>';
+          card2.innerHTML = '<span style="visibility:hidden;">' + card2.dataset.card + '</span>';
+          flippedCards = [];
+          lockBoard = false;
+        }, 1000);
+      } else {
+        matchedPairs++;
+        flippedCards = [];
+        if (matchedPairs === gameBoard.children.length / 2) {
+          round++;
+          if (round < allRounds.length) {
+            alert(`Well done! Starting round ${round + 1}!`);
+            createCards();
+          } else {
+            confetti({
+              particleCount: 200,
+              spread: 70,
+              origin: { y: 0.6 }
+            });
+            alert("🎉 Congrats! You finished all rounds and trained your brain well! 🎉");
+            round = 0;
+            createCards();
+          }
+        }
+      }
+    }
+  
+    restartBtn.addEventListener('click', () => {
+      round = 0;
+      createCards();
+    });
+  
+    createCards();
+  });
+  </script>  
+</body>
+{% endblock %}
