@@ -5,6 +5,7 @@
 
 {% block content %}
 
+
 <section class="tips-section">
   <h2 class="centered-heading"><strong>Tips and Tricks</strong></h2>
 </section>
@@ -12,36 +13,53 @@
   <section class="fun-facts-section">
     <h2 class="centered-heading">Benefits of Exercise</h2>
     <div class="facts-grid">
-      <div class="fact-card">
-        <img src="{{ url_for('static', filename='music improves workout.png') }}" alt="Start Small Icon">
-        <h4>Music Improves Workout Performance</h4>
-        <p>Listening to music while exercising can improve performance by up to 15%.</p>
-      </div>
-      <div class="fact-card">
-        <img src="{{ url_for('static', filename='exercise improves brain.png') }}" alt="Start Small Icon">
-        <h4>Exercise Improves Brain Function</h4>
-        <p>Cardio increases blood flow and helps your brain grow new neural connections.</p>
-      </div>
-      <div class="fact-card">
-        <img src="{{ url_for('static', filename='productivity.png') }}" alt="Start Small Icon">
-        <h4>Increases productivity</h4>
-        <p>Exercising increases the number of endorphins that are released into your body and increases productivity.</p>
-      </div>
-      <div class="fact-card">
-        <img src="{{ url_for('static', filename='aging.png') }}" alt="Start Small Icon">
-        <h4>Exercise Slows Signs of Aging</h4>
-        <p>Regular physical activity helps maintain muscle, skin health, and mental sharpness.</p>
-      </div>
-      <div class="fact-card">
-        <img src="{{ url_for('static', filename='improves immunity.png') }}" alt="Start Small Icon">
-        <h4>Exercise Strengthens Immunity</h4>
-        <p>Active individuals are less likely to get sick thanks to improved immune function.</p>
-      </div>
-      <div class="fact-card">
-        <img src="{{ url_for('static', filename='improved sleeping.png') }}" alt="Start Small Icon">
-        <h4>Exercise Improves Sleep</h4>
-        <p>Physical activity helps regulate your sleep cycle and reduces insomnia symptoms.</p>
-      </div>
+      <a href="https://www.center4research.org/can-listening-music-improve-workout/" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="fact-card">
+          <img src="{{ url_for('static', filename='music improves workout.png') }}" alt="Start Small Icon">
+          <h4>Preferred Music Improves Workout Performance</h4>
+          <p>Music that is motivational or synchronized with your exercise is shown to have physical and psychological effects.</p>
+        </div>
+      </a>
+      
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9256523/" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="fact-card">
+          <img src="{{ url_for('static', filename='exercise improves brain.png') }}" alt="Start Small Icon">
+          <h4>Exercise Improves Brain Function</h4>
+          <p>Aerobic exercise can promote an optimal environment for the development of neuroplasticity.</p>
+        </div>
+      </a>
+
+      <a href="https://www.researchgate.net/profile/Jeric-Suguis/publication/384198074_Physical_exercise_and_socio-emotional_skills_as_predictors_of_academic_productivity_among_college_students/links/66ee17ad750edb3bea65cd01/Physical-exercise-and-socio-emotional-skills-as-predictors-of-academic-productivity-among-college-students.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="fact-card">
+          <img src="{{ url_for('static', filename='productivity.png') }}" alt="Start Small Icon">
+          <h4>Exercise Increases Productivity</h4>
+          <p>Exercise boosts academic productivity through health, mood and social benefits.</p>
+        </div>
+      </a>
+
+      <a href="https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/607859" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="fact-card">
+          <img src="{{ url_for('static', filename='aging.png') }}" alt="Start Small Icon">
+          <h4>Exercise Slows Signs of Aging</h4>
+          <p>Regular physical activity helps maintain muscle, skin health and mental sharpness.</p>
+        </div>
+      </a>
+
+      <a href="https://www.sciencedirect.com/science/article/abs/pii/S1877117315001842" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="fact-card">
+          <img src="{{ url_for('static', filename='improves immunity.png') }}" alt="Start Small Icon">
+          <h4>Exercise Strengthens Immunity</h4>
+          <p>Active individuals are less likely to get sick thanks to improved immune function.</p>
+        </div>
+      </a>
+
+      <a href="https://www.sciencedirect.com/science/article/pii/S1836955312701066" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="fact-card">
+          <img src="{{ url_for('static', filename='improved sleeping.png') }}" alt="Start Small Icon">
+          <h4>Exercise Improves Sleep</h4>
+          <p>Physical activity helps regulate your sleep cycle and reduces insomnia symptoms.</p>
+        </div>
+      </a>
     </div>  
   </section>
     
