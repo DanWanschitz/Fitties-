@@ -734,3 +734,46 @@ footer {
   font-size: 14px;
   color: #cccccc;
 }
+
+.on-campus-section {
+  background-color: #0f032c;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.on-campus-text {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.on-campus-link a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.on-campus-link a:hover {
+  color: #ccccff;
+}
+
+.on-campus-section .centered-heading {
+  color: white !important;
+}
+
+hr {
+  display: none !important;
+  border: none !important;
+  margin: 0 !important;
+  height: 0 !important;
+}
+
+/* Optional: remove borders on section containers */
+section {
+  border: none !important;
+  box-shadow: none !important;
+}
+
