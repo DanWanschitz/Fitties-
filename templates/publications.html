@@ -5,87 +5,39 @@
 {% block content %}
 <style>
   body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   .main-content {
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 0 20px;
   }
-    .group-header {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 30px 0 10px;
-  }
-  .publication-group {
-  max-width: 1000px; /* or any wider width */
-  margin: 0 auto 30px; 
-  padding: 15px 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-  .publication {
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
-  }
-  .publication:last-child {
-    border-bottom: none;
-  }
-  .details {
-    margin-top: 5px;
-  }
-  .title {
-  cursor: pointer;
-  color: #004080;
-  font-size: 1.1em;
-  font-weight: bold;
-  margin-bottom: 4px;
-  }
-  .authors {
-    color: #000;
-    margin-top: 4px;
-  }
-  .details {
-    margin-top: 8px;
-    color: #000; /* Make details text black */
-    font-size: 0.95em;
-  }
-  .year {
-  color: black;
-  font-weight: bold;
-  }
-  .title-text {
-  font-size: 32px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
-  color: white ;
-}
-  #search-controls {
-  display: flex;
-  justify-content: space-between; /* space out the items */
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
-  gap: 10px;
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #0f032c; 
-  border: 2px solid #0f032c; 
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-}
 
+  .title-text {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+  }
+
+  #search-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background-color: #0f032c;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+  }
 
   #search-controls input,
   #search-controls select {
-    flex: 1 1 30%;
-    min-width: 0; 
+    flex: 1 1 22%;
     padding: 8px;
     border: 1px solid white;
     background-color: white;
@@ -93,49 +45,88 @@
     border-radius: 4px;
   }
 
-
   #search-controls input::placeholder {
     color: black;
   }
 
-  #search-controls input:focus,
-  #search-controls select:focus {
-    outline: none;
-    border-color: white;
-    background-color: white;
+  .publication-group {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    margin: 0 auto 30px;
+    max-width: 1000px;
+  }
+
+  .publication {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+
+  .publication:last-child {
+    border-bottom: none;
+  }
+
+  .title {
+    cursor: pointer;
+    color: #004080;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .authors {
+    color: black;
+    margin-top: 4px;
+  }
+
+  .year {
+    color: black;
+    font-weight: bold;
+  }
+
+  .details {
+    margin-top: 8px;
+    color: black;
+    font-size: 0.95em;
   }
 
 </style>
-<body>
-  <div id="search-controls" style="margin-bottom: 20px; padding: 10px; background: #0f032c; border: 1px solid #0f032c;">
-  <input type="text" id="searchInput" placeholder="Search by title..." style="padding: 5px; width: 60%;">
 
-  <select id="researchTypeFilter" style="padding: 5px;">
-    <option value="">All Research Types</option>
-    <option value="lab">Lab-led Research</option>
-    <option value="individual">Individual-led Research</option>
-  </select>
-
-  <select id="articleTypeFilter" style="padding: 5px;">
-    <option value="">All Article Types</option>
-    <option value="data">Data Articles</option>
-    <option value="review">Review/Opinion Articles</option>
-  </select>
-</div>
-
-  <div class="main-content">
+<div class="main-content">
   <div class="title-text">Publications by FitBrainLab</div>
-  <div class="summary" id="summary"></div>
+
+  <div id="search-controls">
+    <input type="text" id="searchInput" placeholder="Search by title...">
+    
+    <select id="researchTypeFilter">
+      <option value="">All Research Types</option>
+      <option value="lab">Lab-led Research</option>
+      <option value="individual">Individual-led Research</option>
+    </select>
+
+    <select id="articleTypeFilter">
+      <option value="">All Article Types</option>
+      <option value="data">Data Articles</option>
+      <option value="review">Review/Opinion Articles</option>
+    </select>
+
+    <select id="yearFilter">
+      <option value="">All Years</option>
+      {% for y in range(2025, 2004, -1) %}
+        <option value="{{ y }}">{{ y }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
   <div id="publications"></div>
 </div>
+
 <script>
-  let allPublications = [];
+let allPublications = [];
 
 fetch("/static/publications.json")
-  .then(res => {
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-    return res.json();
-  })
+  .then(res => res.json())
   .then(data => {
     allPublications = [
       ...data.fbl_data_articles.map(pub => ({ ...pub, research: "lab", type: "data" })),
@@ -144,22 +135,22 @@ fetch("/static/publications.json")
       ...data.review_articles_joram.map(pub => ({ ...pub, research: "individual", type: "review" }))
     ];
     renderPublications(allPublications);
-  })
-  .catch(err => console.error("Failed to load publications JSON:", err));
+  });
 
-// Add listeners for filters
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const researchTypeFilter = document.getElementById("researchTypeFilter");
   const articleTypeFilter = document.getElementById("articleTypeFilter");
+  const yearFilter = document.getElementById("yearFilter");
 
-  [searchInput, researchTypeFilter, articleTypeFilter].forEach(el => {
+  [searchInput, researchTypeFilter, articleTypeFilter, yearFilter].forEach(el => {
     el.addEventListener("input", () => {
       const filtered = allPublications.filter(pub => {
         const matchesTitle = pub.title.toLowerCase().includes(searchInput.value.toLowerCase());
         const matchesResearch = !researchTypeFilter.value || pub.research === researchTypeFilter.value;
         const matchesType = !articleTypeFilter.value || pub.type === articleTypeFilter.value;
-        return matchesTitle && matchesResearch && matchesType;
+        const matchesYear = !yearFilter.value || String(pub.year) === yearFilter.value;
+        return matchesTitle && matchesResearch && matchesType && matchesYear;
       });
       renderPublications(filtered);
     });
@@ -167,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function renderPublications(publications) {
-  const container = document.getElementById('publications');
+  const container = document.getElementById("publications");
   container.innerHTML = '';
 
   const groupBox = document.createElement('div');
@@ -183,13 +174,7 @@ function renderPublications(publications) {
 
     const year = document.createElement('div');
     year.className = 'year';
-    if (pub.year) {
-      let yearText = `Year: ${pub.year}`;
-      if (pub.date) {
-        yearText += ` ${pub.date}`;
-      }
-      year.textContent = yearText;
-    }
+    year.textContent = pub.year ? `Year: ${pub.year}` : '';
 
     const authors = document.createElement('div');
     authors.className = 'authors';
@@ -200,8 +185,6 @@ function renderPublications(publications) {
 
     const details = document.createElement('div');
     details.className = 'details';
-    details.style.marginTop = '5px';
-
     const parts = [];
     if (pub.journal) parts.push(`Journal: ${pub.journal}`);
 
@@ -238,6 +221,5 @@ function renderPublications(publications) {
 
   container.appendChild(groupBox);
 }
-
 </script>
 {% endblock %}
