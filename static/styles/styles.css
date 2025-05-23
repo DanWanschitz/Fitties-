@@ -484,6 +484,7 @@ footer {
 
 .research-page h1.centered-heading {
   margin-bottom: 0px; /* reduce from default */
+  font-size: 40px;
 }
 
 .research-page h2.centered-heading {
