@@ -25,6 +25,14 @@ def aboutus():
 def gamepage():
     return render_template("gamepage.html")
 
+@app.route("/memorymaze")
+def memory_maze():
+    return render_template("memorymaze.html")
+
+@app.route("/memorygame")
+def memory_game():
+    return render_template("memorygame.html")
+
 @app.context_processor
 def inject_request():
     return dict(request=request)
