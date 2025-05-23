@@ -10,7 +10,7 @@
 </section>
 
   <section class="fun-facts-section">
-    <h2 class="centered-heading">Fun Facts About Exercise</h2>
+    <h2 class="centered-heading">Benefits of Exercise</h2>
     <div class="facts-grid">
       <div class="fact-card">
         <img src="{{ url_for('static', filename='music improves workout.png') }}" alt="Start Small Icon">
@@ -62,7 +62,7 @@
       <div class="tip-box">
         <img src="{{ url_for('static', filename='create routine.png') }}" alt="Attach to Routine Icon">
         <h4>Attach to Routine</h4>
-        <p>Pair your habit with something you already do — like doing a short walk right after finishing your morning coffee or study session.</p>
+        <p>Pair your habit with something you already do, like doing a short walk right after finishing your morning coffee or study session.</p>
       </div>
       <div class="tip-box">
         <img src="{{ url_for('static', filename='track.png') }}" alt="Track Progress Icon">
@@ -72,10 +72,13 @@
     </div>  
     </section> 
 
-  <h2 class="centered-heading">On Campus</h2>
-  <div class="content-box">
-    <p>
-      The <strong>University Student Council (USC)</strong> is here to make your campus life better — from events and clubs to student support. They're students, just like you, working to make your voice heard. Get involved or just see what they're up to!
-    </p>
-  </div>
+    <section class="on-campus-section">
+      <h2 class="centered-heading">On Campus</h2>
+      <p class="on-campus-text">
+        The University Student Council (USC) is here to make your campus life better — from organizing events and running clubs to offering support with academics and well-being. They’re a team of students working to represent your voice, connect you to opportunities, and make sure your experience is heard and valued. Whether you're looking to get involved or just curious, it's worth checking out!
+      </p>
+      <div class="on-campus-link">
+        <a href="https://www.uscsport.nl/" target="_blank">Learn more about USC→</a>
+      </div>
+    </section>
 {% endblock %}
