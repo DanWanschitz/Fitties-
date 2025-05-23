@@ -5,12 +5,17 @@
 {% block content %}
 <style>
   body {
-    font-family: sans-serif;
-    max-width: 1200px;
-    margin: auto;
-    padding: 160px;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
   }
-  .group-header {
+
+  .main-content {
+    max-width: 1200px;
+    margin: 160px auto 0 auto; /* top padding via margin */
+    padding: 0 20px;
+  }
+    .group-header {
     font-size: 1.3em;
     font-weight: bold;
     margin: 30px 0 10px;
@@ -63,12 +68,11 @@
 }
 </style>
 <body>
+  <div class="main-content">
   <div class="title-text">Publications by FitBrainLab</div>
-</body>
-<div class="summary" id="summary"></div>
-
-<div id="publications"></div>
-
+  <div class="summary" id="summary"></div>
+  <div id="publications"></div>
+</div>
 <script>
   fetch("/static/publications.json")
   .then(res => {
@@ -182,4 +186,5 @@ function renderPublications(groups) {
 
 
 {% endblock %}
+
 
