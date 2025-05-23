@@ -483,6 +483,14 @@ footer {
 }
 
 /* === RESEARCH PAGE === */
+
+.research-page h1.centered-heading {
+  margin-bottom: 0px; /* reduce from default */
+}
+
+.research-page h2.centered-heading {
+  margin-top: 0;
+}
 .research-page .institute-info {
   max-width: 1300px;
   margin: 0 auto 40px;
