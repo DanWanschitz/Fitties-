@@ -6,7 +6,6 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 0;
-  padding-top: 160px; /* Adjusted for navbar height */
   position: relative;
   overflow-x: hidden;
 }
@@ -19,8 +18,7 @@ body {
 }
 
 /* === Navbar styling (from homepage.css) === */
-.navbar {
-  position: fixed; /* Changed to fixed so it stays at top of screen */
+.navbar { 
   top: 0;
   left: 0;
   right: 0;
