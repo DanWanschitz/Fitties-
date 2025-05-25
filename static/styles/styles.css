@@ -819,3 +819,25 @@ section {
   color: white !important;
 }
 
+.fact-card {
+  position: relative;
+  overflow: hidden; /* ensures the label doesn't spill out */
+}
+
+.fact-card::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #007bff;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fact-card:hover::after {
+  content: "Read Article →";
+  opacity: 1;
+}
+
