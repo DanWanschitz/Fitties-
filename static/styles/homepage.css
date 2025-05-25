@@ -76,6 +76,7 @@ body, html {
 .navbar ul li a {
   text-decoration: none;
   color: #ffffff;
+  font-size: 20px;
   position: relative;
   padding: 8px;
   transition: color 0.3s;
@@ -96,13 +97,13 @@ body, html {
 }
 
 .hero h1 {
-  font-size: 60px;
+  font-size: 70px;
   line-height: 1.2;
   margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 8px;
 }
 
