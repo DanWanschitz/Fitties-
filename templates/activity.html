@@ -13,11 +13,12 @@
   <section class="fun-facts-section">
     <h2 class="centered-heading">Benefits of Exercise</h2>
     <div class="facts-grid">
-      <a href="https://www.center4research.org/can-listening-music-improve-workout/" target="_blank" style="text-decoration: none; color: inherit;">
+      <a href="https://link.springer.com/chapter/10.1007/978-981-15-1792-1_23/" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="fact-card">
-          <img src="{{ url_for('static', filename='images/music improves workout.png') }}" alt="Start Small Icon">
-          <h4>Music Improves Workout Performance</h4>
-          <p>Music that is motivational or synchronized with your exercise is shown to have physical and psychological effects.</p>
+          <img src="{{ url_for('static', filename='images/reduce stress.png') }}" alt="Start Small Icon">
+          <h4>Reduces Stress & Anxiety</h4>
+          <p>Regular physical activity can help lower stress levels and ease symptoms of anxiety. Exercise boosts mood, reduces tension, and supports overall mental well-being.
+         </p>
         </div>
       </a>
       
@@ -74,7 +75,7 @@
     <div class="habit-tips-container">
       <div class="tip-box">
         <img src="{{ url_for('static', filename='images/clock.png') }}" alt="Start Small Icon">
-        <h4>Start Small</h4>
+        <h4>Set a small daily goal</h4>
         <p>Start with just 5–10 minutes a day, even something simple like a few stretches right after waking up. Staying consistent is much easier when it feels manageable.</p>
       </div>
       <div class="tip-box">
@@ -83,9 +84,9 @@
         <p>Pair your habit with something you already do, like doing a short walk right after finishing your morning coffee or study session.</p>
       </div>
       <div class="tip-box">
-        <img src="{{ url_for('static', filename='images/track.png') }}" alt="Track Progress Icon">
-        <h4>Track Progress</h4>
-        <p>Use a habit tracker or calendar to visually see your progress and stay motivated.</p>
+        <img src="{{ url_for('static', filename='images/consistent.png') }}" alt="Track Progress Icon">
+        <h4>Be Consistent, Not Perfect</h4>
+        <p>Missing a day doesn’t mean you’ve failed. Focus on showing up regularly, it’s consistency that builds lasting habits, not perfection.</p>
       </div>
     </div>  
     </section> 
@@ -99,4 +100,27 @@
         <a href="https://www.uscsport.nl/" target="_blank">Learn more about USC→</a>
       </div>
     </section>
+    <section class="tips-tricks-section">
+      <h2 class="centered-heading"><strong>Tips and Tricks</strong></h2>
+      <div class="habit-tips-container">
+        <div class="tip-box" style="background-color: #ffffff; color: #000;">
+          <img src="{{ url_for('static', filename='images/music improves workout.png') }}" alt="Music Icon">
+          <h4 style="color: #000;">Use Music to Boost Motivation</h4>
+          <p>Listening to your favorite upbeat tracks can improve mood, motivation, and make workouts more enjoyable.</p>
+        </div>
+    
+        <div class="tip-box" style="background-color: #ffffff; color: #000;">
+          <img src="{{ url_for('static', filename='images/train together.png') }}" alt="Plan Ahead Icon">
+          <h4 style="color: #000;">Fitness is Better with Friends</h4>
+          <p>Training with a friend or joining a group makes exercise more fun and helps you stay motivated.</p>
+        </div>
+    
+        <div class="tip-box" style="background-color: #ffffff; color: #000;">
+          <img src="{{ url_for('static', filename='images/track.png') }}" alt="Workout Buddy Icon">
+          <h4 style="color: #000;">Track Progress</h4>
+          <p>Use an app or calendar to visually see your progress and stay motivated.</p>
+        </div>
+      </div>
+    </section>    
+    
 {% endblock %}
