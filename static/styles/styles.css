@@ -139,13 +139,17 @@ section {
   font-weight: 700;
 }
 
-.header-aboutus {
+.header-aboutus h1{
   text-align: center;
+  font-size: 38px;
+  font-weight: bold;
   padding: 0px 40px 0px 20px;
+  font-family: Oswald;
 }
 
 .FitBrainheader {
-  font-size: 30px;
+  font-size: 22px;
+  text-align: center;
   padding: 0px 10px 0px 20px;
 }
 
