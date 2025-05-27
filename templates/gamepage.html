@@ -4,22 +4,68 @@
 
 {% block content %}
 <style>
-  .intro-section {
+  .main-box {
     background-color: white;
     color: black;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-text {
     margin-bottom: 2rem;
   }
 
-  .game-section {
-    background-color: white;
-    color: black;
+  .intro-text h1 {
+    font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .game-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .game-card {
+    flex: 1 1 300px;
+    background-size: cover;
+    background-position: center;
+    color: white;
     padding: 2rem;
-    margin-top: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    min-width: 280px;
+    max-width: 440px;
+  }
+
+  .game-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); /* dark overlay */
+    border-radius: 12px;
+  }
+
+  .game-card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .game-card h2 {
+    font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: white;
   }
 
   .btn-play {
@@ -38,55 +84,53 @@
     background-color: #0056b3;
   }
 
-  h1, h2 {
-    font-weight: bold;
-    font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
-    color: black;
+  a {
+    color: #007BFF;
   }
 </style>
 
-<div class="container text-center">
-  <!-- Introductory Paragraph -->
-  <div class="intro-section">
-    <h1>FitBrainLab: Building Mental Resilience</h1>
+<div class="main-box text-center">
+  <div class="intro-text">
+    <h1>Fit Brain Games: Building Mental Resilience</h1>
     <p>
       FitBrainLab is about building resilience, not just in your body, but in your mind.
       Just like physical exercise strengthens your muscles, these games strengthen cognitive skills like memory, focus, and mental flexibility.
     </p>
     <p>
-      These abilities aren’t just mental, they play a crucial role in how we form habits, stay motivated, and stick to physical routines, especially when challenges arise.
-      Research shows that training working memory and attention improves self-regulation and persistence—key traits in maintaining long-term health behaviors.
-      <a href="https://doi.org/10.1073/pnas.0801268105" target="_blank" rel="noopener noreferrer">Read more</a>
+      These abilities aren’t just mental, they’re crucial to forming habits, staying motivated, and sticking to routines.
+      Research shows that training working memory and attention improves self-regulation and persistence.
+      <a href="https://doi.org/10.1073/pnas.0801268105" target="_blank" rel="noopener noreferrer">Read more</a>.
     </p>
     <p>
-      By returning regularly and challenging yourself, you’re not just playing — you’re building mental endurance that supports your physical goals.
+      By returning regularly and challenging yourself, you’re not just playing. You’re building mental endurance that supports your physical goals.
     </p>
   </div>
 
-  <!-- Games -->
-  <div class="row">
-    <div class="col-md-6">
-      <div class="game-section">
+  <div class="game-container">
+    <!-- Game 1 -->
+    <div class="game-card" style="background-image: url('/static/images/gb3.avif');">
+      <div class="game-card-content">
         <h2>Memory Maze</h2>
         <p>
-          You'll briefly see colored boxes that disappear — your challenge is to recall and select the correct ones.
+          You'll briefly see colored boxes that disappear your challenge is to recall and select the correct ones.
           It trains visual-spatial memory and attention control.
         </p>
-        <a href="/memorymaze" class="btn btn-primary btn-play">Play Now</a>
+        <a href="/memorymaze" class="btn btn-play">Play Now</a>
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="game-section">
+    <!-- Game 2 -->
+    <div class="game-card" style="background-image: url('/static/images/gb2.avif');">
+      <div class="game-card-content">
         <h2>Memory Match</h2>
         <p>
-          A classic memory match: flip cards to find matching pairs.
-          It helps reinforce short-term memory and focus through repetition.
+          A classic memory match: flip cards to find matching pairs.<br> It helps reinforce short-term memory and focus through repetition.
         </p>
-        <a href="/memorygame" class="btn btn-success btn-play">Play Now</a>
+        <a href="/memorygame" class="btn btn-play">Play Now</a>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
+
 
