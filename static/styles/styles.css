@@ -493,7 +493,9 @@ footer {
 }
 
 .research-page h2.centered-heading {
-  margin-top: 0;
+  font-size: 22px;
+  text-align: center;
+  padding: 0px 10px 0px 20px;
 }
 .research-page .institute-info {
   max-width: 1300px;
