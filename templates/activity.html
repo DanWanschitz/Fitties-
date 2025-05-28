@@ -103,8 +103,7 @@
         <a href="https://www.uscsport.nl/" target="_blank">Learn more about USC→</a>
       </div>
     </section>
-    <section class="tips-section">
-      <section class="quick-tips">
+    <section class="tips-section quick-tips">
       <h2 class="centered-heading">Quick Tips</h2>
       <div class="habit-tips-container">
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="tip-link">
@@ -112,6 +111,9 @@
             <img src="{{ url_for('static', filename='images/music improves workout.png') }}" alt="Use Music Icon">
             <h4>Use Music to Boost Motivation</h4>
             <p>Listening to your favorite upbeat tracks can improve mood, motivation, and make workouts more enjoyable.</p>
+            <div class="read-more-container">
+              <span class="read-more-button">Read More →</span>  
+            </div>        
           </div>
         </a>
     
@@ -120,6 +122,9 @@
             <img src="{{ url_for('static', filename='images/train together.png') }}" alt="Fitness with Friends Icon">
             <h4>Fitness is Better with Friends</h4>
             <p>Training with a friend or joining a group makes exercise more fun and helps you stay motivated.</p>
+            <div class="read-more-container">
+              <span class="read-more-button">Read More →</span>          
+            </div>
           </div>
         </a>
     
@@ -128,11 +133,12 @@
             <img src="{{ url_for('static', filename='images/track.png') }}" alt="Track Progress Icon">
             <h4>Track Progress</h4>
             <p>Use an app or calendar to visually see your progress and stay motivated.</p>
+            <div class="read-more-container">
+              <span class="read-more-button">Read More →</span>          
           </div>
-        </a>
       </div>
-      <section class="quick-tips"> 
-    </section>    
+    </a>
+    </section>
     
     
 {% endblock %}
