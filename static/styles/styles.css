@@ -139,17 +139,14 @@ section {
   font-weight: 700;
 }
 
-.header-aboutus h1{
+.header-aboutus {
   text-align: center;
-  font-size: 38px;
-  font-weight: bold;
   padding: 0px 40px 0px 20px;
-  font-family: Oswald;
 }
 
 .FitBrainheader {
-  font-size: 22px;
-  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
   padding: 0px 10px 0px 20px;
 }
 
@@ -483,227 +480,6 @@ footer {
   color: white !important;
 }
 
-/* === RESEARCH PAGE === */
-.research-page h1.centered-heading {
-  text-align: center;
-  font-size: 38px;
-  font-weight: bold;
-  padding: 0px 40px 0px 20px;
-  font-family: Oswald;
-}
-
-.research-page h2.centered-heading {
-  font-size: 22px;
-  text-align: center;
-  padding: 0px 10px 0px 20px;
-}
-.research-page .institute-info {
-  max-width: 1300px;
-  margin: 0 auto 40px;
-}
-
-.research-page .centered-heading {
-  text-align: center;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.research-page h1,
-.research-page h2,
-.research-page h4 {
-  color: white !important;
-}
-
-/* Animal research layout */
-.animal-project-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px auto;
-  max-width: 1000px;
-}
-
-.animal-project-image-box {
-  background-color: #f9f9f9;
-  padding: 30px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.animal-project-image-box img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.animal-project-text-box {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex: 1;
-  max-width: 500px;
-  box-sizing: border-box;
-}
-
-.animal-project-text {
-  flex: 1;
-  min-width: 250px;
-  max-width: 550px;
-  margin-bottom: 10px;
-  color: black;
-}
-
-.animal-project-text p {
-  margin-bottom: 10px;
-}
-
-@media (max-width: 768px) {
-  .animal-project-row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .animal-project-text {
-    max-width: 100%;
-  }
-}
-
-/* === ACTIVITY PAGE === */
-.activity-page ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-.activity-page ul li {
-  margin: 10px 0;
-}
-
-/* Tips section title */
-.tips-section {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.tips-section .centered-heading,
-.tips-section h1.centered-heading,
-.tips-section h2.centered-heading {
-  color: white !important;
-  border: none;
-  padding: 0;
-  margin: 40px 0;
-  box-shadow: none !important;
-}
-
-/* Fun Facts */
-.fun-facts-section {
-  background-color: #0f032c;
-  padding: 60px 0;
-}
-
-.facts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.fact-card {
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.fact-card h4 {
-  color: #0f032c;
-  margin-bottom: 10px;
-  font-size: 26px;
-  font-family: 'Oswald', sans-serif;
-}
-
-.fact-card:hover {
-  transform: translateY(-5px);
-}
-
-.fact-card img {
-  width: 180px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 15px;
-  max-width: 100%;
-}
-
-/* Build a Habit */
-.build-habit-section {
-  background-color: white;
-  padding: 60px 0;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-}
-
-.habit-intro-text {
-  max-width: 900px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
-  font-size: 16px;
-  line-height: 1.8;
-  text-align: center;
-  color: #000;
-}
-
-.habit-tips-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 30px auto;
-  padding: 0 20px;
-  max-width: 1000px;
-}
-
-.tip-box {
-  flex: 1;
-  min-width: 250px;
-  background-color: #0f032c;
-  color: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.tip-box h4 {
-  color: white;
-  margin-bottom: 10px;
-}
-
-.tip-box img {
-  width: 230px;
-  height: 230px;
-  object-fit: contain;
-  margin-bottom: 15px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Footer */
 .site-footer {
   background-color: #1a1f6d;
@@ -887,7 +663,7 @@ section {
 }
 
 .tip-box {
-  background-color: white;
+  background-color: #003366;
   color: black;
   border-radius: 12px;
   padding: 20px;
@@ -974,5 +750,228 @@ body {
 
 #restart-btn:hover {
   background-color: #0056b3;
+}
+
+/* === RESEARCH PAGE === */
+.research-page h1.centered-heading {
+  margin-bottom: 0px;
+  font-size: 40px;
+}
+
+.research-page h2.centered-heading {
+  margin-top: 0;
+}
+
+.research-page .institute-info {
+  max-width: 1300px;
+  margin: 0 auto 40px;
+}
+
+.research-page .centered-heading {
+  text-align: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.research-page h1,
+.research-page h2,
+.research-page h4 {
+  color: white !important;
+}
+
+/* Animal research layout */
+.animal-project-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 1000px;
+}
+
+.animal-project-image-box {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.animal-project-image-box img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.animal-project-text-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.animal-project-text {
+  flex: 1;
+  min-width: 250px;
+  max-width: 550px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.animal-project-text p {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .animal-project-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .animal-project-text {
+    max-width: 100%;
+  }
+}
+/* === ACTIVITY PAGE === */
+.activity-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.activity-page ul li {
+  margin: 10px 0;
+}
+
+/* Tips section title */
+.tips-section {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.tips-section .centered-heading,
+.tips-section h1.centered-heading,
+.tips-section h2.centered-heading {
+  color: white !important;
+  border: none;
+  padding: 0;
+  margin: 40px 0;
+  box-shadow: none !important;
+}
+
+/* Fun Facts */
+.fun-facts-section {
+  background-color: #0f032c;
+  padding: 60px 0;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fact-card {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.fact-card h4 {
+  color: #0f032c;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.fact-card:hover {
+  transform: translateY(-5px);
+}
+
+.fact-card img {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 15px;
+  max-width: 100%;
+}
+
+/* Build a Habit */
+.build-habit-section {
+  background-color: white;
+  padding: 60px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.habit-intro-text {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+  color: #000;
+}
+
+.habit-tips-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  padding: 0 20px;
+  max-width: 1000px;
+}
+
+.tip-box {
+  flex: 1;
+  min-width: 250px;
+  background-color: #0f032c;
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tip-box h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.tip-box img {
+  width: 230px;
+  height: 230px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.usc-logo {
+  width: 300px;       /* You can adjust this: 80px–130px works well */
+  height: auto;
+  display: block;
+  margin: 0 auto 50px;
 }
 
