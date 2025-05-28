@@ -978,3 +978,23 @@ body {
 .quick-tips .tip-box h4 {
   color: black;
 }
+
+.read-more-container {
+  margin-top: auto;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.read-more-button {
+  display: inline-block;
+  color: #007bff;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.tip-link:hover .read-more-button {
+  color: #0056b3;
+}
+
