@@ -52,46 +52,37 @@
 <section>
   <h2 class="centered-heading">Animal Research Projects</h2>
 
-  <div class="animal-project-row">
-    <div class="animal-project-text-box">
-      <div class="animal-project-text">
-        <h3>Brain Adaptations from Wheel Running</h3>
-        <p>Investigates how voluntary physical activity leads to brain changes that support stress resilience.</p>
-        <p><strong>Partners:</strong> VU (Jaspers)</p>
-      </div>
-    </div>
-    <div class="animal-project-image-box">
-      <img src="{{ url_for('static', filename='images/istockphoto-1180410208-612x612.jpg') }}" alt="Project Image">
+  <div class="institute-info">
+    <img src="{{ url_for('static', filename='images/brain adaption.jpg') }}" alt="Brain Adaptations Image"> 
+    <div class="description">
+      <h3>Brain Adaptations from Wheel Running</h3>
+      <p>This project examines how voluntary exercise supports resilience to stress by promoting adaptive changes in the brain. We map ΔFOSB expression after long-term wheel running to identify activity patterns in stress- and reward-related brain regions. In a related study, we compare different types of exercise wheels to assess their impact on brain plasticity and stress-related adaptations, such as ΔFOSB and neurogenesis.</p>
+      <p><strong>Partners:</strong> VU (Jaspers)</p>
     </div>
   </div>
-    
   
-  <div class="animal-project-row">
-    <div class="animal-project-text-box">
-      <div class="animal-project-text">
+  <div class="institute-info">
+    
+    <div class="description">
         <h3>Exercise & Immunotherapy on Tumor Growth</h3>
-        <p>Studies how combining physical activity and immunotherapy influences brain function and tumor development.</p>
+        <p>This project aims to explore how cancer immunotherapy and voluntary exercise interact to influence brain health. Using a model of colorectal cancer, it investigates the effects of immune checkpoint inhibition and wheel running on microglia, the brain’s resident immune cells. The goal is to better understand how these treatments affect the brain alongside their impact on tumor growth.</p>
         <p><strong>Partners:</strong> Amsterdam UMC (Vermeulen)</p>
       </div>
-    </div>
-    <div class="animal-project-image-box">
-      <img src="{{ url_for('static', filename='images/istockphoto-1180410208-612x612.jpg') }}" alt="Tumor Growth Project Image">
+      <img src="{{ url_for('static', filename='images/exercise and imunity.jpg') }}" alt="Brain Adaptations Image">
     </div>
   </div>
 
-  <div class="animal-project-row">
-    <div class="animal-project-text-box">
-      <div class="animal-project-text">
-        <h3>The Social Gym</h3>
-        <p>SOME TEXT</p>
-        <p><strong>Partners:</strong> SILS-UvA Technology Center</p>
-      </div>
+  <div class="institute-info">
+    <img src="{{ url_for('static', filename='images/social gym.jpg') }}" alt="Brain Adaptations Image">
+    <div class="description social-gym-text"> 
+      <h3>The Social Gym</h3>
+      <p>This project aims to develop a system for monitoring social behaviour and voluntary exercise in group-housed mice. By enabling automated tracking of wheel running and interactions in a shared environment, it seeks to improve the ecological validity of behavioural studies and reduce stress caused by isolation and manual observation.</p>
+      <p><strong>Partners:</strong> SILS-UvA Technology Center</p>
     </div>
-      <div class="animal-project-image-box">
-        <img src="{{ url_for('static', filename='images/istockphoto-1180410208-612x612.jpg') }}" alt="The Social Gym Project Image">
-      </div>
-  </div>
+  </div>  
 </section>
+
+{% endblock %}
 
 
 
