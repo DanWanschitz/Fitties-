@@ -526,32 +526,57 @@ footer {
 }
 
 .on-campus-section {
-  background-color: #0f032c;
+  background-color: white;
   padding: 60px 20px;
   text-align: center;
+  color: #002855;
+}
+
+.centered-heading {
+  color: #002855;
+  margin-bottom: 20px; /* Reduced from 40px */
+  font-size: 2rem;
+}
+
+.on-campus-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px; /* Reduced spacing between image and text */
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+  padding-top: 10px; /* Optional: small space above content */
+}
+
+
+.on-campus-image {
+  max-width: 250px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.on-campus-text-container {
+  max-width: 600px;
 }
 
 .on-campus-text {
-  max-width: 800px;
-  margin: 0 auto 20px;
-  color: white;
+  color: #002855;
   font-size: 16px;
   line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 .on-campus-link a {
-  color: #ffffff;
+  color: #002855;
   text-decoration: underline;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .on-campus-link a:hover {
-  color: #ccccff;
-}
-
-.on-campus-section .centered-heading {
-  color: white !important;
+  color: #001f45;
 }
 
 hr {
