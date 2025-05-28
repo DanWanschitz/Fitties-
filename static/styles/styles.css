@@ -975,3 +975,6 @@ body {
   margin: 0 auto 50px;
 }
 
+.tip-box h4 {
+  color: black !important;
+}
