@@ -105,6 +105,10 @@ section {
   color: #000;
 }
 
+.FitBrainheader h1{
+  font-family: Oswald;
+}
+
 .institute-info {
   background-color: white;
   color: #000;
